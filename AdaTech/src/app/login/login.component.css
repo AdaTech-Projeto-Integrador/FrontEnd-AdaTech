@@ -1,0 +1,19 @@
+.html {
+    background-color: blue
+}
+
+.roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn-azul {
+    background: #2D6073
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}

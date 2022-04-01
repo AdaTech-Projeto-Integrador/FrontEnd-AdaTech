@@ -1,5 +1,8 @@
+import { UsuarioLogin } from './../model/UsuarioLogin';
 import { Component, OnInit } from '@angular/core';
-import { Container, Main } from 'tsparticles';
+import { AuthService } from '../service/auth.service';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-login',
@@ -8,102 +11,40 @@ import { Container, Main } from 'tsparticles';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+    usuarioLogin: UsuarioLogin = new UsuarioLogin()
 
-  ngOnInit() {
-  }
+    constructor(
 
+        private auth: AuthService,
+        private router: Router
 
-  id = "tsparticles";
+    ) { }
 
-    /* Starting from 1.19.0 you can use a remote url (AJAX request) to a JSON with the configuration */
-    particlesUrl = "http://foo.bar/particles.json";
-
-    /* or the classic JavaScript object */
-    particlesOptions = {
-        background: {
-            color: {
-                value: "#0d47a1"
-            }
-        },
-        fpsLimit: 120,
-        interactivity: {
-            events: {
-                onClick: {
-                    enable: true,
-                    mode: "push"
-                },
-                onHover: {
-                    enable: true,
-                    mode: "repulse"
-                },
-                resize: true
-            },
-            modes: {
-                bubble: {
-                    distance: 400,
-                    duration: 2,
-                    opacity: 0.8,
-                    size: 40
-                },
-                push: {
-                    quantity: 4
-                },
-                repulse: {
-                    distance: 200,
-                    duration: 0.4
-                }
-            }
-        },
-        particles: {
-            color: {
-                value: "#ffffff"
-            },
-            links: {
-                color: "#ffffff",
-                distance: 150,
-                enable: true,
-                opacity: 0.5,
-                width: 1
-            },
-            move: {
-                direction: "none",
-                enable: true,
-                outModes: "bounce",
-                random: false,
-                speed: 6,
-                straight: false
-            },
-            number: {
-                density: {
-                    enable: true,
-                    area: 800
-                },
-                value: 80
-            },
-            opacity: {
-                value: 0.5
-            },
-            shape: {
-                type: "circle"
-            },
-            size: {
-                value: { min: 1, max: 5 }
-            }
-        },
-        detectRetina: true
-    };
-
-    particlesLoaded(container: Container): void {
-        console.log(container);
+    ngOnInit() {
+        window.scroll(0,0)
     }
 
-    particlesInit(main: Main): void {
-        console.log(main);
+    entrar() {
+        this.auth.entrar(this.usuarioLogin).subscribe((resp: UsuarioLogin)=>{
+            this.usuarioLogin = resp
+            environment.id = this.usuarioLogin.id
+            environment.token = this.usuarioLogin.token
+            environment.nome = this.usuarioLogin.nome
+            environment.foto = this.usuarioLogin.foto
 
-        // Starting from 1.19.0 you can add custom presets or shape here, using the current tsParticles instance (main)
+            console.log(environment.id)
+            console.log(environment.token)
+            console.log(environment.nome)
+            console.log(environment.foto)
+
+            this.router.navigate(['/inicio'])
+            }
+            , erro => {
+                if(erro.status == 500 || erro.status == 401) {
+                    alert('Email ou senha incorretos!')
+                }
+            }
+        )
     }
 
 }
-
-

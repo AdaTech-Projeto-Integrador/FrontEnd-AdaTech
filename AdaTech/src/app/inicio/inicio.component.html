@@ -1,1 +1,133 @@
-<p>inicio works!</p>
+<div class="container-fluid">
+
+  <div class="row  d-flex align-items-center">   <!--cor do fundo e centralizar itens-->
+
+    <div class="col-md-6">
+
+      <div class="row d-flex justify-content-center">
+        <!--centralizar o texto das 6 colunas-->
+        <div class="col-md-6 text-btn">
+          <h1 class = "fs-50">Seja bem vindo(a)!</h1>
+          <h5 class = "fs-18">Expresse aqui os seus pensamentos e opiniões!</h5>
+        </div>
+      </div>
+
+      <div class="row d-flex justify-content-center mt-3 mb-5">
+        <!--centralizar os botões das 6 colunas-->
+
+
+        <div class="col-md-6">
+          <button type="submit" class = "btn btn-laranja roboto text-azul mr-2 text-white" data-toggle="modal" data-target="#novaPostagem">Nova Postagem</button>  <!--mr-2 para separar os botões-->
+          <a class="btn btn-laranja text-white" href="#postagens">Ver Postagens</a>   <!--estilar o link com um botão-->
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <div class="col-md-6 d-flex justify-content-center">
+        <img src="https://i.imgur.com/5SAmZOd.png" alt="imagem tech"  height="450px" whidth="450px"> <!--altura e largura imagem-->
+    </div>
+
+  </div>
+
+
+</div>
+
+<div class="container mb-5 mt-5" id="postagens">
+
+  <nav>
+    <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
+
+      <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab"
+        aria-controls="nav-todasPostagens" aria-selected="true">Todas as Postagens</a>
+
+      <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab"
+        aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Postagens</a>
+
+      <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-postagemTema-tab" data-toggle="tab" href="#postagemTema" role="tab"
+        aria-controls="nav-postagemTema" aria-selected="false">Postagens por Tema</a>
+    </div>
+
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="nav-todasPostagens-tab">
+     Todas as postagens</div>
+    <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
+     Minhas postagens</div>
+    <div class="tab-pane fade" id="postagemTema" role="tabpanel" aria-labelledby="nav-postagemTema-tab">
+     Portagens por tema</div>
+  </div>
+
+</div>
+
+
+
+<div class="container mt-20">
+
+    <div class="row">
+      <div class="col-2">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <a class="nav-link btn-laranja" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
+          <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+          <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+          <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+        </div>
+      </div>
+      <div class="col-10 text-center ">
+        <div class="tab-content" id="v-pills-tabContent">
+          <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">Mussum Ipsum, cacilds vidis litro abertis. Nullam volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio.Detraxit consequat et quo num tendi nada.Leite de capivaris, leite de mula manquis sem cabeça.Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose.
+
+            Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi.Manduma pindureta quium dia nois paga.Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.Quem num gosta di mé, boa gentis num é./div>
+          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">Mussum Ipsum, cacilds vidis litro abertis. Nullam volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio.Detraxit consequat et quo num tendi nada.Leite de capivaris, leite de mula manquis sem cabeça.Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose.
+
+            Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi.Manduma pindureta quium dia nois paga.Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.Quem num gosta di mé, boa gentis num é.</div>
+          <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+          <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<!-- Button trigger modal só copiei o data-toggle e data-target pra colocar no butão de nova postagem
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#novaPostagem">
+  Launch demo modal
+</button>-->
+
+<!-- Modal -->
+<div class="modal fade" id="novaPostagem" tabindex="-1"
+aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Nova Postagem</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label for="titulo">Título</label>
+          <textarea class = "form-control" name="texto" id="texto" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="texto">Escolha um tema ou <a data-dismiss="modal" routerLink='/tema'>cadastre um novo</a>:</label>
+          <select name ="tema" id="tema" class = "form-control">
+            <option value="tema">Temas</option>
+
+          </select>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success">Publicar</button>
+      </div>
+    </div>
+  </div>
+</div>

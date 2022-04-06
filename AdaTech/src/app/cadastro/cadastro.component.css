@@ -1,15 +1,28 @@
 .vertical-center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .roboto {
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+.josefin-reg {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.mulish {
+  font-family: 'Mulish', sans-serif;
+  font-weight: 400;
 }
 
 .btn-azul {
-    background: #2D6073
+  background: #2D6073
+}
+
+.fs-27 {
+  font-size: 27pt;
 }

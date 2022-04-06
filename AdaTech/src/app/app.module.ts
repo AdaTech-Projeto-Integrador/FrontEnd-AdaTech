@@ -13,6 +13,9 @@ import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { TemaComponent } from './tema/tema.component';
+import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     RodapeComponent,
     LoginComponent,
     CadastroComponent,
-    InicioComponent
+    InicioComponent,
+    
+    
   ],
   imports: [
     BrowserModule,

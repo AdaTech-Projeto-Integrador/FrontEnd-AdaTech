@@ -17,6 +17,7 @@ import { TemaComponent } from './tema/tema.component';
 import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,8 @@ import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
     LoginComponent,
     CadastroComponent,
     InicioComponent,
+    TemaComponent,
+    TemaEditComponent
     
     
   ],

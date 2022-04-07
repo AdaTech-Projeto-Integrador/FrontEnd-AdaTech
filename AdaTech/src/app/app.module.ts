@@ -16,6 +16,10 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { TemaComponent } from './tema/tema.component';
 import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
 import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
+import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
+import { AlertasComponent } from './alertas/alertas.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { OrderModule } from 'ngx-order-pipe';
 
 
 
@@ -30,16 +34,20 @@ import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component'
     InicioComponent,
     TemaComponent,
     TemaEditComponent,
-    TemaDeleteComponent
+    TemaDeleteComponent,
+    UsuarioEditComponent,
+    AlertasComponent
     
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgParticlesModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ModalModule.forRoot(),
+    OrderModule
+  
   ],
   providers: [{
     provide: LocationStrategy,

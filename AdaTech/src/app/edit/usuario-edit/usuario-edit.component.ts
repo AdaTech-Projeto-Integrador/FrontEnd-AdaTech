@@ -16,13 +16,14 @@ export class UsuarioEditComponent implements OnInit {
   idUsuario: number
   confirmarSenha: string
   tipoUsuario: string
+  fotoUsuario: string
 
   constructor(
     private authService: AuthService,
     private route: ActivatedRoute,
     private router: Router,
     private alertas: AlertasService
-    
+
   ) { }
 
   ngOnInit() {
@@ -30,7 +31,7 @@ export class UsuarioEditComponent implements OnInit {
 
     if (environment.token == '') {
       this.router.navigate(['/login'])
-        }
+    }
 
     console.log(environment.id)
 
@@ -42,42 +43,59 @@ export class UsuarioEditComponent implements OnInit {
     this.confirmarSenha = event.target.value
 
   }
- 
+
   tipoUser(event: any) {
     this.tipoUsuario = event.target.value
   }
 
+  validarFoto(event: any) {
+    this.fotoUsuario = event.target.value
+  }
+
   atualizar() {
-
-    if (this.tipoUsuario == "tipo") {
-      alert('Escolha um tipo de usuário!')
-    } else {
-      this.usuario.tipo = this.tipoUsuario
-    }
-
 
     if (this.usuario.senha != this.confirmarSenha) {
       alert('As senhas estão incorretas!')
-    } else {
-      this.authService.atualizar(this.usuario).subscribe((resp: Usuario) => {
-        this.usuario = resp
-        this.router.navigate(['/login'])
+    } else if (this.tipoUsuario != "profissional" && this.tipoUsuario != "org") {
+      alert('Selecione o tipo de perfil!')
+    }
 
-        this.alertas.showAlertInfo("Usuario atualizado com sucesso, faça o login novamente.")
-        environment.token = ''
-        environment.nome = ''
-        environment.foto = ''
-        environment.id = 0
-        environment.tipo = ''
-        this.router.navigate(['/login'])
-      })
+    else {
+
+      if (this.fotoUsuario == null) {
+        this.fotoUsuario = "https://i.imgur.com/wBsUWjq.png"
+      }
+
+      else {
+        this.usuario.tipo = this.tipoUsuario
+        this.usuario.foto = this.fotoUsuario
+        this.authService.atualizar(this.usuario).subscribe((resp: Usuario) => {
+          this.usuario = resp
+          this.router.navigate(['/login'])
+
+          this.alertas.showAlertInfo("Usuario atualizado com sucesso, faça o login novamente.")
+          environment.token = ''
+          environment.nome = ''
+          environment.foto = ''
+          environment.id = 0
+          environment.tipo = ''
+          this.router.navigate(['/login'])
+        },
+        
+        erro => {
+          if (erro.status == 500 || erro.status == 401 || erro.status == 400) {
+            alert('Preencha os campos obrigatórios corretamente!')
+          }
+        })
+      }
+
     }
 
   }
-    findByIdUsuario(id: number){
-      this.authService.getByIdUsuario(id).subscribe((resp: Usuario) => {
-        this.usuario = resp
-      })
-    }
-
+  findByIdUsuario(id: number) {
+    this.authService.getByIdUsuario(id).subscribe((resp: Usuario) => {
+      this.usuario = resp
+    })
   }
+
+}

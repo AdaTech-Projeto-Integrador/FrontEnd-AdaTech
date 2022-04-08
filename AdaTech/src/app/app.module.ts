@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgParticlesModule } from "ng-particles";
+
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -20,6 +20,8 @@ import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component
 import { AlertasComponent } from './alertas/alertas.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { OrderModule } from 'ngx-order-pipe';
+import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
+import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.component';
 
 
 
@@ -36,7 +38,10 @@ import { OrderModule } from 'ngx-order-pipe';
     TemaEditComponent,
     TemaDeleteComponent,
     UsuarioEditComponent,
-    AlertasComponent
+    AlertasComponent,
+    PostagemDeleteComponent,
+    PostagemEditComponent
+    
     
     
   ],

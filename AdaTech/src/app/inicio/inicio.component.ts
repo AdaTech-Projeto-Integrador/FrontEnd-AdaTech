@@ -21,10 +21,12 @@ export class InicioComponent implements OnInit {
   tema: Tema = new Tema
   listaTemas: Tema[]
   idTema: number
+  tituloPostagem: string
+  textoPostagem: string
 
-  usuario: Usuario = new Usuario
+  usuario: Usuario = new Usuario()
   idUsuario = environment.id
-  
+
   nome = environment.nome
   foto = environment.foto
   tipo = environment.tipo
@@ -39,6 +41,7 @@ export class InicioComponent implements OnInit {
   ngOnInit() {
 
     if (environment.token == '') {
+      alert('Sua sessão expirou, faça o login novamente')
       this.router.navigate(['/login'])
     }
 
@@ -61,12 +64,29 @@ export class InicioComponent implements OnInit {
   }
 
   getAllPostagens() {
-    this.postagemService.getAllPostagens().subscribe((resp: Postagem[])=> {
+    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
       this.listaPostagens = resp
     })
   }
 
-  publicar(){
+  validarTitulo(event: any) {
+    this.tituloPostagem = event.target.value
+  }
+
+  validarTexto(event: any) {
+    this.textoPostagem = event.target.value
+  }
+
+  publicar() {
+
+    if (this.tituloPostagem == null) {
+      alert('Postagem não publicada! Digite um título')
+    }
+    else if (this.textoPostagem == null) {
+      alert('Postagem não publicada! Digite o texto')
+    } else if (this.idTema == null) {
+      alert('Postagem não publicada! Escolha um tema')
+    } else {
     this.tema.id = this.idTema
     this.postagem.tema = this.tema
 
@@ -76,16 +96,18 @@ export class InicioComponent implements OnInit {
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
       alert('Postagem realizada com sucesso!')
-      this.postagem = new Postagem
+      this.postagem = new Postagem()
       this.getAllPostagens()
+      this.getAllTemas()
     })
   }
-  
+  }
+
   findByIdUsuario() {
     this.authService.getByIdUsuario(this.idUsuario).subscribe((resp: Usuario) => {
       this.usuario = resp
     })
   }
 
- 
+
 }

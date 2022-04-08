@@ -19,18 +19,18 @@
             </div>
 
             <div class="form-group">
-                <input (keydown.enter)="atualizar()"  class="form-control" type="text"
+                <input (keydown.enter)="atualizar()" (input)="validarFoto($event)" class="form-control" type="text"
                     name="foto" id="foto" placeholder="Link da sua foto" value="{{usuario.foto}}">
             </div>
 
             <div class="form-group">
                 <input (keydown.enter)="atualizar()" (input)="confirmSenha($event)" class="form-control" type="password"
-                    name="senha" id="senha" placeholder="Senha *" minlength="8" value="">
+                    name="senha" id="senha" placeholder="Senha *" minlength="6" value="">
             </div>
 
             <div class="form-group">
                 <input (keydown.enter)="atualizar()" [(ngModel)]="usuario.senha" class="form-control" type="password"
-                    name="confirmaSenha" id="confirmSenha" placeholder="Confirme sua senha *" minlength="8" value="">
+                    name="confirmaSenha" id="confirmSenha" placeholder="Confirme sua senha *" minlength="6" value="">
             </div>
 
             <div class="form-group">

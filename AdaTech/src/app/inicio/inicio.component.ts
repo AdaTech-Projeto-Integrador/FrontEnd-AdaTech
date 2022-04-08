@@ -28,7 +28,6 @@ export class InicioComponent implements OnInit {
   nome = environment.nome
   foto = environment.foto
   tipo = environment.tipo
-  id = environment.id
 
   constructor(
     private router: Router,

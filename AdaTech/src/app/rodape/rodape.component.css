@@ -6,16 +6,36 @@ ul.social-network {
 ul.social-network li{
     display: inline;
     margin: 0;
-    padding: 5px
 }
 
 .fa{
-    font-size: 35pt;
+    font-size: 20pt;
     color: white;
-    padding: 10px;
-
 }
 
 .fa-github-square:hover{
     color: #D95B43;
 }
+
+.nav a {
+    color: aliceblue;
+    }
+    
+    .nav a:hover {
+        color: #D95B43;
+        cursor: pointer;
+    }
+    .fs-rob{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15pt;
+    }
+    
+    .nav ul li{
+    margin-left: 20pt;
+    margin-right: 20pt;
+    margin-top: 0;
+    }
+    
+    .bg-azul{
+        background-color: #1f192f
+    }

@@ -1,26 +1,22 @@
 .nav a {
-color: aliceblue;
-}
-
-.nav a:hover {
-    color: #D95B43;
-    cursor: pointer;
-}
-.fs-rob{
-font-family: 'Roboto', sans-serif;
-font-size: 15pt;
-}
-
-.nav ul li{
-margin-left: 20pt;
-margin-right: 20pt;
-margin-top: 0;
-}
-
-.bg-azul{
-    background-color: #1f192f
-}
-
-
-
-
+    color: aliceblue;
+    }
+    
+    .nav a:hover {
+        color: #D95B43;
+        cursor: pointer;
+    }
+    .fs-rob{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15pt;
+    }
+    
+    .nav ul li{
+    margin-left: 20pt;
+    margin-right: 20pt;
+    margin-top: 0;
+    }
+    
+    .bg-azul{
+        background-color: #1f192f
+    }

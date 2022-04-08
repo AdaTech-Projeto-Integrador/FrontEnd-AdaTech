@@ -10,27 +10,27 @@
 
             <div class="form-group">
                 <input (keydown.enter)="atualizar()" [(ngModel)]="usuario.nome" class="form-control" type="text"
-                    name="nome" id="nome" placeholder="Nome *" value={{usuario.nome}}>
+                    name="nome" id="nome" placeholder="Nome *">
             </div>
 
             <div class="form-group">
                 <input (keydown.enter)="atualizar()" [(ngModel)]="usuario.email" class="form-control" type="email"
-                    name="email" id="email" placeholder="Email (exemplo@exemplo.com) *">
+                    name="email" id="email" placeholder="Email (exemplo@exemplo.com) *" value="{{usuario.email}}">
             </div>
 
             <div class="form-group">
                 <input (keydown.enter)="atualizar()"  class="form-control" type="text"
-                    name="foto" id="foto" placeholder="Link da sua foto">
+                    name="foto" id="foto" placeholder="Link da sua foto" value="{{usuario.foto}}">
             </div>
 
             <div class="form-group">
                 <input (keydown.enter)="atualizar()" (input)="confirmSenha($event)" class="form-control" type="password"
-                    name="senha" id="senha" placeholder="Senha *" minlength="8">
+                    name="senha" id="senha" placeholder="Senha *" minlength="8" value="">
             </div>
 
             <div class="form-group">
                 <input (keydown.enter)="atualizar()" [(ngModel)]="usuario.senha" class="form-control" type="password"
-                    name="confirmaSenha" id="confirmSenha" placeholder="Confirme sua senha *" minlength="8">
+                    name="confirmaSenha" id="confirmSenha" placeholder="Confirme sua senha *" minlength="8" value="">
             </div>
 
             <div class="form-group">

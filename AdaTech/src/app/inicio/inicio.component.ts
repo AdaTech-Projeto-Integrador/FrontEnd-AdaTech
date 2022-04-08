@@ -22,13 +22,13 @@ export class InicioComponent implements OnInit {
   listaTemas: Tema[]
   idTema: number
 
-  usuario: Usuario = new Usuario
+  usuario: Usuario = new Usuario()
   idUsuario = environment.id
   
   nome = environment.nome
   foto = environment.foto
   tipo = environment.tipo
-  id = environment.id
+
 
   constructor(
     private router: Router,
@@ -40,6 +40,7 @@ export class InicioComponent implements OnInit {
   ngOnInit() {
 
     if (environment.token == '') {
+      alert('Sua sessão expirou, faça o login novamente')
       this.router.navigate(['/login'])
     }
 
@@ -77,7 +78,7 @@ export class InicioComponent implements OnInit {
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
       alert('Postagem realizada com sucesso!')
-      this.postagem = new Postagem
+      this.postagem = new Postagem()
       this.getAllPostagens()
     })
   }

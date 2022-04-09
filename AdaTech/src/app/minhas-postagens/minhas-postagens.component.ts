@@ -76,6 +76,4 @@ export class MinhasPostagensComponent implements OnInit {
       this.usuario = resp
     })
   }
-
-
 }

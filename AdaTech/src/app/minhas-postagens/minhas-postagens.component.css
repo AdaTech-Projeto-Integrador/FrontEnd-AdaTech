@@ -1,3 +1,30 @@
 .margem {
     margin-top: 100px;
 }
+
+.botao-success{
+    background: transparent;
+    padding: 10px 50px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: ease-in-out .25s;
+}
+
+.botao-success:hover{
+    background:  #31a926;
+
+}
+.botao-danger{
+    padding: 10px 50px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: ease-in-out .25s;
+}
+
+.botao-danger:hover{
+    background:  #c21515b7;
+}
+
+

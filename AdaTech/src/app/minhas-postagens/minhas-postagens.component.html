@@ -18,8 +18,6 @@
                 <button type="submit" class="btn btn-success roboto text-azul mr-2 text-dark"
                     [routerLink]="['/minhas-postagens', idUsuario]">Minhas postagens</button>
             </div>
-
-
         </div>
 
 
@@ -32,20 +30,22 @@
 
                 <div class="feed p-2" *ngFor="let item of usuario.postagem">
                     <div class="bg-white border mt-2">
+                    </div>
+                    <div class="p-2 px-3 text-black-50"><span>Tema: {{item.tema.descricao}}</span></div>
+                        <div class="p-2 px-3"><span>{{item.titulo}}</span></div>
+                        <div class="p-2 px-3"><span>{{item.texto}}</span></div>
                         <div>
                             <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
                                 <div class="d-flex flex-row align-items-center feed-text px-2">
-                                    <span class="text-black-50 time">{{item.data | date: 'dd/MM/yyyy'}} às {{item.data |
+                                    <span class="text-black-50 time mt-3 mp-3">{{item.data | date: 'dd/MM/yyyy'}} às {{item.data |
                                         date:
                                         'HH:mm'}}</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="p-2 px-3 text-black-50"><span>Tema: {{item.tema.descricao}}</span></div>
-                        <div class="p-2 px-3"><span>{{item.titulo}}</span></div>
-                        <div class="p-2 px-3"><span>{{item.texto}}</span></div>
-                        <a [routerLink]="['/postagem-edit', item.id]" class="text-info mr-3" href="">Editar</a>
-                        <a [routerLink]="['/postagem-delete', item.id]" class="text-danger" href="">Apagar</a>
+                            <a [routerLink]="['/postagem-edit', item.id]" class="text-success mr-3 botao-success" href="">Editar</a>
+                        <a [routerLink]="['/postagem-delete', item.id]" class="text-danger botao-danger" href="">Apagar</a>
+                        
+                       
 
                     </div>
 

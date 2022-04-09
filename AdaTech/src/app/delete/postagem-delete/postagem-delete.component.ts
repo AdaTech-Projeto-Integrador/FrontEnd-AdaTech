@@ -15,6 +15,7 @@ export class PostagemDeleteComponent implements OnInit {
   postagem: Postagem = new Postagem()
   idPost: number
   
+  idUsuario = environment.id
 
   constructor(
 

@@ -13,6 +13,8 @@ import { TemaService } from 'src/app/service/tema.service';
 export class TemaEditComponent implements OnInit {
 tema: Tema = new Tema()
 
+idUsuario = environment.id
+
   constructor(
     private temaService: TemaService,
     private router: Router,

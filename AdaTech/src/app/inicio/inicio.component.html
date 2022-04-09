@@ -1,67 +1,138 @@
+<div class="margem"></div>
+
+
+<div class="container-fluid">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-3 text-btn">
+
+      <div class="card" style="width:25%; position: fixed;">
+        <img src="{{foto}}" alt="Imagem do user" width="150px" height="150px" class="img-fluid rounded-circle">
+        <p class=" m-0 font-weight-bold fs-16 pl-3">{{nome}} </p>
+        <p class=" m-0 font-weight-bold fs-16 pl-3">{{tipo}} </p>
+
+        <li class="nav-item pl-3">
+          <a [routerLink]="['/usuario-edit/', idUsuario]">
+            <p class="text-dark fs-16 m-0"><i class="fa fa-pencil-square-o " aria-hidden="true"></i></p>
+          </a>
+        </li>
+
+        <button type="submit" class="btn btn-success roboto text-azul mr-2 text-dark"
+          [routerLink]="['/minhas-postagens', idUsuario]">Minhas postagens</button>
+      </div>
+
+       
+      </div>
+
+
+
+    <div class="col-md-6 d-flex justify-content-between">
+
+      <div class="col-md-8">
+
+        <div class="card">
+
+        <div class="form-group">
+          <label for="titulo">Título</label>
+          <input [(ngModel)]='postagem.titulo' (input)="validarTitulo($event)" type="text" class="form-control"
+            id="titulo" placeholder="Digite o título">
+        </div>
+
+        <div class="form-group">
+          <label for="texto">Texto</label>
+          <textarea [(ngModel)]='postagem.texto' (input)="validarTexto($event)" class="form-control" name="texto"
+            id="texto" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="texto">Escolha um tema ou <a routerLink='/tema'>cadastre um
+              novo</a>:</label>
+          <select name="tema" id="tema" class="form-control" [(ngModel)]='idTema' (change)='findByIdTema()'>
+            <option *ngFor='let item of listaTemas' value="{{item.id}}">{{item.descricao}}</option>
+          </select>
+        </div>
+
+        <div>
+          <button type="submit" class="btn btn-success" (click)='publicar()'>Publicar</button>
+        </div>
+
+      </div>
+
+
+        <!-- ////////////////// -->
+        <div class="feed p-2" *ngFor="let postagem of listaPostagens">
+          <div class="bg-white border mt-2" >
+            <div>
+              <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+                <div class="d-flex flex-row align-items-center feed-text px-2"><img class="rounded-circle"
+                    src="{{postagem.usuario.foto}}" width="45">
+                  <div class="d-flex flex-column flex-wrap ml-2"><span class="font-weight-bold">{{postagem.usuario.nome}}</span>
+                    <span class="text-black-50 time">{{postagem.data | date: 'dd/MM/yyyy'}} às {{postagem.data |
+                      date:
+                      'HH:mm'}}</span></div>
+                </div>
+                <div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
+              </div>
+            </div>
+            <div class="p-2 px-3 text-black-50"><span>Tema: {{postagem.tema.descricao}}</span></div>
+            <div class="p-2 px-3"><span>{{postagem.titulo}}</span></div>
+            <div class="p-2 px-3"><span>{{postagem.texto}}</span></div>
+            <!--<div class="d-flex justify-content-end socials p-2 py-3"><i class="fa fa-thumbs-up"></i><i
+                class="fa fa-comments-o"></i><i class="fa fa-share"></i></div>-->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-md-3"></div>
+
+  </div>
+</div>
+
+
 <div class="container-fluid">
 
-
-  <div class="row  d-flex align-items-center">   <!--cor do fundo e centralizar itens-->
-
-    <div class="col-md-6">
-
-      <div class="row d-flex justify-content-center">
-        <!--centralizar o texto das 6 colunas-->
-        <div class="col-md-6 text-btn">
-          <h1 class = "fs-50">Seja bem vindo(a)!</h1>
-          <h5 class = "fs-18">Expresse aqui os seus pensamentos e opiniões!</h5>
-        </div>
+  <div class="container mt-4 mb-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-3">
       </div>
 
-      <div class="col-md-6 bg-secondary"   *ngFor="let tema of listaTemas">
-
-        <div class="card mt-3 mb-3"   *ngFor="let item of tema.postagem">
-          <div class="card-header bg-transparent border d-flex">
-            <img src="{{foto}}" alt="Imagem do user" width="50px" height="50px"
-            class="img-fluid rounded-circle">
-    
-              <p class=" m-0 font-weight-bold fs-16 pl-3">{{item.usuario.nome}} </p>
-    
-          </div>
-          <div class="card-body">
-            <small class="text-muted text-center">{{item.titulo}}</small>
-            <h5 class="card-title text-center">{{item.texto}}</h5>
-            <p class="card-text text-center">Texto da Postagem</p>
-          </div>
-          <div class="card-footer bg-transparent text-center border ">{{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date:
-            'HH:mm'}}</div>
-        </div>
-    
+      <div class="col-md-3">
       </div>
-
-      <li class="nav-item pl-3">
-        <a [routerLink]="['/usuario-edit/', idUsuario]">
-        <p class="text-dark fs-16 m-0"><i class="fa fa-pencil-square-o " aria-hidden="true"></i></p>
-      </a>
-      </li>
-
-      <div class="row d-flex justify-content-center mt-3 mb-5">
-        <!--centralizar os botões das 6 colunas-->
-
-
-        <div class="col-md-6">
-          <button type="submit" class = "btn btn-success roboto text-azul mr-2 text-dark" data-toggle="modal" data-target="#novaPostagem">Nova Postagem</button>  <!--mr-2 para separar os botões-->
-          <a class="btn btn-success text-white" href="#postagens">Ver Postagens</a>   <!--estilar o link com um botão-->
-        </div>
-      </div>
-
-
-
     </div>
-
-    <div class="col-md-6 d-flex justify-content-center">
-        <img src="https://i.imgur.com/5SAmZOd.png" alt="imagem tech"  height="450px" whidth="450px"> <!--altura e largura imagem-->
-    </div>
-
   </div>
 
 
+
+
+
+
+
+  -------------------------
+
+
+  <div class="row d-flex justify-content-center mt-3 mb-5">
+    <!--centralizar os botões das 6 colunas-->
+
+
+    <div class="col-md-6">
+      <button type="submit" class="btn btn-success roboto text-azul mr-2 text-dark" data-toggle="modal"
+        data-target="#novaPostagem">Nova Postagem</button>
+      <!--mr-2 para separar os botões-->
+      <a class="btn btn-success text-white" href="#postagens">Ver Postagens</a>
+      <!--estilar o link com um botão-->
+    </div>
+  </div>
+
+
+
+  <div class="col-md-6 d-flex justify-content-center">
+    <img src="https://i.imgur.com/5SAmZOd.png" alt="imagem tech" height="450px" whidth="450px">
+    <!--altura e largura imagem-->
+  </div>
+
 </div>
+
 
 <div class="container mb-5 mt-5" id="postagens">
 
@@ -102,30 +173,15 @@
       <div class="tab-pane fade show active" id="minhasPostagens" role="tabpanel"
         aria-labelledby="nav-minhasPostagens-tab">
 
-        <div class="card-columns">
-
-          <div class="card text-center" *ngFor="let item of usuario.postagem">
-            <div class="card-body">
-              <h5 class="card-title m-0">{{item.titulo}}</h5>
-              <small class="text-muted">Tema: {{item.tema.descricao}}</small>
-              <p class="card-text mt-3">{{item.texto}}</p>
-              <p class="card-text"><small class="text-muted">{{item.data | date: 'dd/MM/yyyy'}} às {{item.data |
-                  date:'HH:mm'}}</small></p>
-                  <a [routerLink]="['/postagem-edit', item.id]" class="text-info mr-3" href="">Editar</a>
-            <a [routerLink]="['/postagem-delete', item.id]" class="text-danger" href="">Apagar</a>
-            </div>
-          </div>
-
-        </div>
+        
 
       </div>
 
     </div>
 
     <div class="tab-pane fade" id="porTema" role="tabpanel" aria-labelledby="nav-porTema-tab">
-      
-      <div class="tab-pane fade show active" id="porTema" role="tabpanel"
-        aria-labelledby="nav-porTema-tab">
+
+      <div class="tab-pane fade show active" id="porTema" role="tabpanel" aria-labelledby="nav-porTema-tab">
 
         <div class="card-columns" *ngFor="let tema of listaTemas">
 
@@ -145,84 +201,4 @@
     </div>
   </div>
 
-</div>
-
-
-<li class="nav-item pl-3">
-  <a [routerLink]="['/usuario-edit/',idUsuario]">
-  <p class="text-dark fs-16 m-0"><i class="fa fa-pencil-square-o " aria-hidden="true"></i></p>
-</a>
-
-<div class="container mt-20">
-
-    <div class="row">
-      <div class="col-2">
-        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-          <a class="nav-link btn-laranja" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
-          <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-          <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-          <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
-        </div>
-      </div>
-      <div class="col-10 text-center ">
-        <div class="tab-content" id="v-pills-tabContent">
-          <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">Mussum Ipsum, cacilds vidis litro abertis. Nullam volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio.Detraxit consequat et quo num tendi nada.Leite de capivaris, leite de mula manquis sem cabeça.Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose.
-
-            Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi.Manduma pindureta quium dia nois paga.Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.Quem num gosta di mé, boa gentis num é./div>
-          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">Mussum Ipsum, cacilds vidis litro abertis. Nullam volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio.Detraxit consequat et quo num tendi nada.Leite de capivaris, leite de mula manquis sem cabeça.Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose.
-
-            Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi.Manduma pindureta quium dia nois paga.Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.Quem num gosta di mé, boa gentis num é.</div>
-          <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-          <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-<!-- Button trigger modal só copiei o data-toggle e data-target pra colocar no butão de nova postagem
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#novaPostagem">
-  Launch demo modal
-</button>-->
-
-
-<!-- Modal -->
-
-<div class="modal fade" id="novaPostagem" tabindex="-1"
-aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" aria-hidden="true">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="TituloModalCentralizado">Nova Postagem</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-        <div class="form-group">
-          <label for="titulo">Título</label>
-         <input [(ngModel)]='postagem.titulo' (input)="validarTitulo($event)" type="text" class="form-control" id="titulo" placeholder="Digite o título">
-        </div>
-
-        <div class="form-group">
-         <label for="texto">Texto</label>
-         <textarea [(ngModel)]='postagem.texto' (input)="validarTexto($event)" class="form-control" name="texto" id="texto" rows="3"></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="texto">Escolha um tema ou <a data-dismiss="modal" routerLink='/tema'>cadastre um novo</a>:</label>
-          <select name ="tema" id="tema" class = "form-control" [(ngModel)]='idTema' (change)='findByIdTema()'>
-            <option *ngFor='let item of listaTemas' value="{{item.id}}">{{item.descricao}}</option>
-          </select>
-        </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-success" (click)='publicar()' data-dismiss="modal">Publicar</button>
-      </div>
-    </div>
-  </div>
 </div>

@@ -22,6 +22,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { OrderModule } from 'ngx-order-pipe';
 import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
 import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.component';
+import { MinhasPostagensComponent } from './minhas-postagens/minhas-postagens.component';
 
 
 
@@ -40,7 +41,8 @@ import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.compon
     UsuarioEditComponent,
     AlertasComponent,
     PostagemDeleteComponent,
-    PostagemEditComponent
+    PostagemEditComponent,
+    MinhasPostagensComponent
     
     
     

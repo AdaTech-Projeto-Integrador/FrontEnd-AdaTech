@@ -30,10 +30,9 @@ export class UsuarioEditComponent implements OnInit {
     window.scroll(0, 0)
 
     if (environment.token == '') {
+      this.alertas.showAlertInfo('Sua sessão expirou, faça o login novamente')
       this.router.navigate(['/login'])
     }
-
-    console.log(environment.id)
 
     this.idUsuario = this.route.snapshot.params['id']
     this.findByIdUsuario(this.idUsuario)
@@ -55,9 +54,9 @@ export class UsuarioEditComponent implements OnInit {
   atualizar() {
 
     if (this.usuario.senha != this.confirmarSenha) {
-      alert('As senhas estão incorretas!')
+      this.alertas.showAlertDanger('As senhas estão incorretas!')
     } else if (this.tipoUsuario != "profissional" && this.tipoUsuario != "org") {
-      alert('Selecione o tipo de perfil!')
+      this.alertas.showAlertDanger('Selecione o tipo de perfil!')
     }
 
     else {
@@ -73,7 +72,7 @@ export class UsuarioEditComponent implements OnInit {
           this.usuario = resp
           this.router.navigate(['/login'])
 
-          this.alertas.showAlertInfo("Usuario atualizado com sucesso, faça o login novamente.")
+          this.alertas.showAlertSuccess("Usuario atualizado com sucesso, faça o login novamente.")
           environment.token = ''
           environment.nome = ''
           environment.foto = ''
@@ -84,7 +83,7 @@ export class UsuarioEditComponent implements OnInit {
         
         erro => {
           if (erro.status == 500 || erro.status == 401 || erro.status == 400) {
-            alert('Preencha os campos obrigatórios corretamente!')
+            this.alertas.showAlertDanger('Preencha os campos obrigatórios corretamente!')
           }
         })
       }

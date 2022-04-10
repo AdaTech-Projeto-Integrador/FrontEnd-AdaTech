@@ -2,6 +2,7 @@ import { Usuario } from './../model/Usuario';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
+import { AlertasService } from '../service/alertas.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -18,7 +19,8 @@ export class CadastroComponent implements OnInit {
   constructor(
 
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private alertas: AlertasService
 
   ) { }
 
@@ -41,9 +43,9 @@ export class CadastroComponent implements OnInit {
   cadastrar() {
 
     if (this.usuario.senha != this.confirmarSenha) {
-      alert('As senhas estão incorretas!')
+      this.alertas.showAlertDanger('As senhas estão incorretas!')
     } else if (this.tipoUsuario != "profissional" && this.tipoUsuario != "org") {
-      alert('Selecione o tipo de perfil!')
+      this.alertas.showAlertDanger('Selecione o tipo de perfil!')
     }
 
     else {
@@ -57,12 +59,12 @@ export class CadastroComponent implements OnInit {
       this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
         this.usuario = resp
         this.router.navigate(['/login'])
-        alert('Usuário cadastrado com sucesso!')
+        this.alertas.showAlertSuccess('Usuário cadastrado com sucesso!')
       },
 
         erro => {
-          if (erro.status == 500 || erro.status == 401) {
-            alert('Preencha os campos obrigatórios corretamente!')
+          if (erro.status == 500 || erro.status == 401 || erro.status == 400) {
+            this.alertas.showAlertDanger('Preencha os campos obrigatórios corretamente!')
           }
         }
 

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
+import { AlertasService } from '../service/alertas.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
     constructor(
 
         private auth: AuthService,
-        private router: Router
+        private router: Router,
+        private alertas: AlertasService
 
     ) { }
 
@@ -43,7 +45,7 @@ export class LoginComponent implements OnInit {
             }
             , erro => {
                 if(erro.status == 500 || erro.status == 401) {
-                    alert('Email ou senha incorretos!')
+                    this.alertas.showAlertDanger('Email ou senha incorretos!')
                 }
             }
         )

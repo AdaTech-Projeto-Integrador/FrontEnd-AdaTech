@@ -37,6 +37,7 @@ export class PostagemEditComponent implements OnInit {
     window.scroll(0,0)
 
     if(environment.token == ''){
+      this.alertas.showAlertInfo('Sua sessão expirou, faça o login novamente')
       this.router.navigate(['/login'])
   }
 
@@ -65,12 +66,12 @@ findAllTemas(){
 
 atualizar(){
   if (this.tituloPostagem == "") {
-    alert('Digite um título!')
+    this.alertas.showAlertDanger('Digite um título!')
   }
   else if (this.textoPostagem == "") {
-    alert('Digite o texto!')
+    this.alertas.showAlertDanger('Digite o texto!')
   } else if(this.idTema == null) {
-    alert('Escolha um tema!')
+    this.alertas.showAlertDanger('Escolha um tema!')
   }
   else
 

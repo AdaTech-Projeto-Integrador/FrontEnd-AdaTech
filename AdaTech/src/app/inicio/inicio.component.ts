@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
 import { Tema } from '../model/Tema';
 import { Usuario } from '../model/Usuario';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
@@ -35,13 +36,14 @@ export class InicioComponent implements OnInit {
     private router: Router,
     private postagemService: PostagemService,
     private temaService: TemaService,
-    private authService: AuthService
+    private authService: AuthService,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
 
     if (environment.token == '') {
-      alert('Sua sessão expirou, faça o login novamente')
+      this.alertas.showAlertInfo('Sua sessão expirou, faça o login novamente')
       this.router.navigate(['/login'])
     }
 
@@ -81,12 +83,12 @@ export class InicioComponent implements OnInit {
   publicar() {
 
     if (this.tituloPostagem == null) {
-      alert('Postagem não publicada! Digite um título')
+      this.alertas.showAlertDanger('Digite um título')
     }
     else if (this.textoPostagem == null) {
-      alert('Postagem não publicada! Digite o texto')
+      this.alertas.showAlertDanger('Digite o texto')
     } else if (this.idTema == null) {
-      alert('Postagem não publicada! Escolha um tema')
+      this.alertas.showAlertDanger('Escolha um tema para a postagem')
     } else {
     this.tema.id = this.idTema
     this.postagem.tema = this.tema
@@ -96,7 +98,7 @@ export class InicioComponent implements OnInit {
 
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
-      alert('Postagem realizada com sucesso!')
+      this.alertas.showAlertSuccess('Postagem realizada com sucesso!')
       this.postagem = new Postagem()
       this.getAllPostagens()
       this.getAllTemas()

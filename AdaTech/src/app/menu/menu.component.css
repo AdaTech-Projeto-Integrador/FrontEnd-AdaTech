@@ -7,7 +7,7 @@
     cursor: pointer;
 }
 
-.fs-rob {
+* {
     font-family: 'Roboto', sans-serif;
     font-size: 15pt;
 }
@@ -21,3 +21,4 @@
 .bg-azul {
     background-color: #1f192f
 }
+

@@ -11,6 +11,8 @@ import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component
 import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
 import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.component';
 import { MinhasPostagensComponent } from './minhas-postagens/minhas-postagens.component';
+import { EmpregabilidadePostagensComponent } from './empregabilidade-postagens/empregabilidade-postagens.component';
+import { CursosPostagensComponent } from './cursos-postagens/cursos-postagens.component';
 
 
 
@@ -28,7 +30,9 @@ const routes: Routes = [
   {path:'usuario-edit/:id',component: UsuarioEditComponent},
   {path:'postagem-edit/:id', component: PostagemEditComponent},
   {path:'postagem-delete/:id', component: PostagemDeleteComponent},
-  {path:'minhas-postagens/:id', component: MinhasPostagensComponent}
+  {path:'minhas-postagens/:id', component: MinhasPostagensComponent},
+  {path:'empregabilidade', component: EmpregabilidadePostagensComponent},
+  {path:'cursos', component: CursosPostagensComponent}
 
 ];
 

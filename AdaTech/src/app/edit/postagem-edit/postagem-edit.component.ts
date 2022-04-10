@@ -20,6 +20,7 @@ export class PostagemEditComponent implements OnInit {
   idTema: number
   tituloPostagem: string
   textoPostagem: string
+  idUsuario = environment.id
 
 
   constructor(

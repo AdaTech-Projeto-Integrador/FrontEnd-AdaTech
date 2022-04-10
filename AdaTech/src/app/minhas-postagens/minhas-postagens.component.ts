@@ -66,7 +66,7 @@ export class MinhasPostagensComponent implements OnInit {
 
   getAllPostagens() {
     this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
-      this.listaPostagens = resp
+      this.listaPostagens = resp.reverse()
     })
   }
 
@@ -75,6 +75,40 @@ export class MinhasPostagensComponent implements OnInit {
     this.authService.getByIdUsuario(this.idUsuario).subscribe((resp: Usuario) => {
       this.usuario = resp
     })
+  }
+
+  validarTitulo(event: any) {
+    this.tituloPostagem = event.target.value
+  }
+
+  validarTexto(event: any) {
+    this.textoPostagem = event.target.value
+  }
+
+  publicar() {
+
+    if (this.tituloPostagem == null) {
+      alert('Postagem não publicada! Digite um título')
+    }
+    else if (this.textoPostagem == null) {
+      alert('Postagem não publicada! Digite o texto')
+    } else if (this.idTema == null) {
+      alert('Postagem não publicada! Escolha um tema')
+    } else {
+    this.tema.id = this.idTema
+    this.postagem.tema = this.tema
+
+    this.usuario.id = this.idUsuario
+    this.postagem.usuario = this.usuario
+
+    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
+      this.postagem = resp
+      alert('Postagem realizada com sucesso!')
+      this.postagem = new Postagem()
+      this.getAllPostagens()
+      this.getAllTemas()
+    })
+  }
   }
 
 

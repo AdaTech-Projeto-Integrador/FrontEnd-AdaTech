@@ -1,5 +1,10 @@
-.margem {
+.margem-top {
     margin-top: 100px;
+
+}
+
+.margem-bottom {
+  margin-bottom: 100px;
 
 }
 
@@ -21,6 +26,9 @@
   font-size: 16px;
 }
 
+.fundo{
+  background-color: #e1e0e0;
+}
 
 body {
   color: #000;
@@ -30,12 +38,17 @@ body {
   background-repeat: no-repeat
 }
 
-.card-usuario {
+.arredondar {
   border-radius: 10px;
 }
 
+.img-center{
+  text-align: center;
 
-.card-post {
+}
+
+
+.card-postar {
   border-radius: 10px;
   width: 500px;
   padding: 20px;
@@ -51,7 +64,7 @@ body {
   background-color: #E0E0E0
 }
 
-textarea {
+.texto {
   padding: 15px 20px;
   border-radius: 10px;
   box-sizing: border-box;
@@ -63,7 +76,27 @@ textarea {
   width: 100%
 }
 
-textarea:focus {
+.titulo {
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #616161;
+  border: 1px solid #F5F5F5;
+  font-size: 16px;
+  letter-spacing: 1px;
+  height: 12px !important;
+  width: 100%
+}
+
+.titulo:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid #2D6073 !important;
+  outline-width: 0 !important
+}
+
+.texto:focus {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;

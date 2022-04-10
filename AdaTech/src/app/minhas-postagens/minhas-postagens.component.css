@@ -9,16 +9,20 @@ margin-bottom: 100px;
 }
 
 .btn-azul {
-background: #2D6073
+background: #2D6073;
+border-radius: 20px;
 }
 
 .btn-azul:hover {
-background: #102d38
+background: #102d38;
 }
 
 
 .btn-branco {
-background: white
+background: white;
+border-color: #102d38;
+border-radius: 20px;
+
 }
 
 .texto-branco{
@@ -128,12 +132,6 @@ color: #BDBDBD
 ::-ms-input-placeholder {
 color: #BDBDBD
 }
-
-.btn-azul {
-border-radius: 50px;
-padding: 4px 40px
-}
-
 
 .options {
 font-size: 23px;

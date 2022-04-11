@@ -15,6 +15,8 @@ export class CadastroComponent implements OnInit {
   confirmarSenha: string
   tipoUsuario: string
   fotoUsuario: string
+  senhaAdm: string
+  okAdm = false
 
   constructor(
 
@@ -40,12 +42,30 @@ export class CadastroComponent implements OnInit {
     this.fotoUsuario = event.target.value
   }
 
+  receberSenhaAdm(event:any) {
+    this.senhaAdm = event.target.value
+  }
+
+  validarSenhaAdm() {
+    if(this.senhaAdm == "123") {
+      this.okAdm = true
+      this.alertas.showAlertSuccess("Senha admin autenticada")
+    }
+    else {
+      this.alertas.showAlertDanger("Senha administrador incorreta")
+      this.okAdm = false
+    }
+    return this.okAdm
+  }
+
   cadastrar() {
 
     if (this.usuario.senha != this.confirmarSenha) {
       this.alertas.showAlertDanger('As senhas estão incorretas!')
     } else if (this.tipoUsuario != "profissional" && this.tipoUsuario != "org" && this.tipoUsuario != "adm") {
       this.alertas.showAlertDanger('Selecione o tipo de perfil!')
+    } else if (this.tipoUsuario == "adm" && this.okAdm == false ) {
+      this.alertas.showAlertDanger('Insira a senha de admin!')
     }
 
     else {

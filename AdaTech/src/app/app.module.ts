@@ -23,6 +23,7 @@ import { OrderModule } from 'ngx-order-pipe';
 import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
 import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.component';
 import { MinhasPostagensComponent } from './minhas-postagens/minhas-postagens.component';
+import { SobreAdatechComponent } from './sobre-adatech/sobre-adatech.component';
 
 
 
@@ -42,7 +43,8 @@ import { MinhasPostagensComponent } from './minhas-postagens/minhas-postagens.co
     AlertasComponent,
     PostagemDeleteComponent,
     PostagemEditComponent,
-    MinhasPostagensComponent
+    MinhasPostagensComponent,
+    SobreAdatechComponent
     
     
     

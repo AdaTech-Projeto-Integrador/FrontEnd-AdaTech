@@ -1,5 +1,30 @@
-.html {
-    background-color: blue
+#body {
+    background: linear-gradient(-45deg, #D95B43, #1f192f, #2d6073, #65b8a6, #b5e8c3);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.text-laranja {
+    color: #D95B43
+}
+
+.card {
+    box-shadow: 0 0 5px 0 ;
+    background: #ffffff21;
+    backdrop-filter: blur(10px);
 }
 
 .roboto {
@@ -16,4 +41,14 @@
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+}
+
+.form-group {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.linha {
+    margin-left: 20px;
+    margin-right: 20px;
 }

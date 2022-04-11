@@ -1,92 +1,84 @@
-<div class="container-fluid vertical-center">
+<div id="body">
 
-  <div class="row">
+    <div class="container-fluid vertical-center">
 
-      <div class="col-md-7">
+        <div class="row">
 
-          <div class="col-md-12 mt-5 mb-5">
-              <h1 class="text-center mulish fs-27">Conecte-se com mulheres profissionais e empresas de tecnologia
-              </h1>
-          </div>
+            <div class="col-md-6 mt-5 mb-5">
 
-          <div class="row d-flex justify-content-center">
-              <div class="col-md-11 text-center">
-                  <p class="josefin-reg">Com inspiração na história de Ada Lovelace, matemática e escritora inglesa
-                      considerada a primeira
-                      programadora da história, a AdaTech surge com o objetivo de criar uma rede de integração entre
-                      mulheres profissionais da tecnologia.
-                      <br>Um espaço inovador e seguro de troca entre profisisonais e empresas, por um mercado mais
-                      diverso e igualitário.
-                  </p>
-              </div>
-              <div class="col-md-8 d-flex justify-content-center">
-                  <img src="https://i.imgur.com/hcIGh3T.png" alt="imagemCadastro" width="330px" height="330px">
-              </div>
-          </div>
+                <div class="row d-flex justify-content-center">
 
-      </div>
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="row d-flex justify-content-center mt-3 mb-3">
+                                <img src="https://i.imgur.com/Zp3eWm2.png" alt="Logo AdaTech" width=250px height=62px>
+                            </div>
 
-      <div class="col-md-5 mt-5 mb-5">
+                            <div class="form-group">
+                                <input (keydown.enter)="cadastrar()" [(ngModel)]="usuario.nome" class="form-control"
+                                    type="text" name="nome" id="nome" placeholder="Nome *">
+                            </div>
 
-          <div class="row d-flex justify-content-center">
+                            <div class="form-group">
+                                <input (keydown.enter)="cadastrar()" [(ngModel)]="usuario.email" class="form-control"
+                                    type="email" name="email" id="email" placeholder="Email (exemplo@exemplo.com) *">
+                            </div>
 
-              <div class="col-md-9">
+                            <div class="form-group">
+                                <input (keydown.enter)="cadastrar()" (input)="validarFoto($event)" class="form-control"
+                                    type="text" name="foto" id="foto" placeholder="Link da sua foto">
+                            </div>
 
-                  <div class="row d-flex justify-content-center mb-3">
-                      <img src="https://i.imgur.com/66zyWK1.png" alt="Logo AdaTech" width=250px height=69px>
-                  </div>
+                            <div class="form-group">
+                                <input (keydown.enter)="cadastrar()" (input)="confirmSenha($event)" class="form-control"
+                                    type="password" name="senha" id="senha" placeholder="Senha *" minlength="8">
+                            </div>
 
-                  <div class="form-group">
-                      <input (keydown.enter)="cadastrar()" [(ngModel)]="usuario.nome" class="form-control" type="text"
-                          name="nome" id="nome" placeholder="Nome *">
-                  </div>
+                            <div class="form-group">
+                                <input (keydown.enter)="cadastrar()" [(ngModel)]="usuario.senha" class="form-control"
+                                    type="password" name="confirmaSenha" id="confirmSenha"
+                                    placeholder="Confirme sua senha *" minlength="8">
+                            </div>
 
-                  <div class="form-group">
-                      <input (keydown.enter)="cadastrar()" [(ngModel)]="usuario.email" class="form-control"
-                          type="email" name="email" id="email" placeholder="Email (exemplo@exemplo.com) *">
-                  </div>
+                            <div class="form-group">
+                                <select (keydown.enter)="cadastrar()" (change)="tipoUser($event)" class="form-control"
+                                    name="tipo" id="tipo">
+                                    <option value="tipo" disabled selected>Tipo de perfil *</option>
+                                    <option value="profissional">Sou uma profissional individual</option>
+                                    <option value="org">Represento uma organização</option>
+                                </select>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <button (click)="cadastrar()" type="submit"
+                                    class="btn btn-azul roboto text-white">Começar</button>
+                            </div>
 
-                  <div class="form-group">
-                      <input (keydown.enter)="cadastrar()" (input)="validarFoto($event)" class="form-control"
-                          type="text" name="foto" id="foto" placeholder="Link da sua foto">
-                  </div>
+                            <hr class="linha mt-3 mb-3">
 
-                  <div class="form-group">
-                      <input (keydown.enter)="cadastrar()" (input)="confirmSenha($event)" class="form-control"
-                          type="password" name="senha" id="senha" placeholder="Senha *" minlength="8">
-                  </div>
+                            <p class="text-center text-white mb-3">
+                                Já faz parte da AdaTech? <a routerLink="/login">Faça login.</a>
+                            </p>
 
-                  <div class="form-group">
-                      <input (keydown.enter)="cadastrar()" [(ngModel)]="usuario.senha" class="form-control"
-                          type="password" name="confirmaSenha" id="confirmSenha" placeholder="Confirme sua senha *"
-                          minlength="8">
-                  </div>
+                        </div>
 
-                  <div class="form-group">
-                      <select (keydown.enter)="cadastrar()" (change)="tipoUser($event)" class="form-control"
-                          name="tipo" id="tipo">
-                          <option value="tipo" disabled selected>Tipo de perfil *</option>
-                          <option value="profissional">Sou uma profissional individual</option>
-                          <option value="org">Represento uma organização</option>
-                      </select>
-                  </div>
-                  <div class="d-flex justify-content-center">
-                      <button (click)="cadastrar()" type="submit"
-                          class="btn btn-azul roboto text-white">Começar</button>
-                  </div>
+                    </div>
 
-                  <hr class="mt-3 mb-3">
+                </div>
 
-                  <p class="text-center">
-                      Já faz parte da AdaTech? <a routerLink="/login">Faça login.</a>
-                  </p>
+            </div>
 
-              </div>
+            <div class="col-md-6 mt-5 mb-5">
 
-          </div>
 
-      </div>
 
-  </div>
+                <div class="row d-flex justify-content-center">
+                    <img src="https://i.imgur.com/bwQDouI.png" alt="imagemCadastro" width="500px" height="500px">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>

@@ -113,7 +113,7 @@
                   <div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
                 </div>
               </div>
-              <div class="p-2 px-3 text-black-50"><span>Tema: {{item.tema}}</span></div>
+              <div class="p-2 px-3 text-black-50"><span>Tema: {{item.tema.descricao}}</span></div>
               <div class="p-2 px-3"><span>{{item.titulo}}</span></div>
               <div class="p-2 px-3"><span>{{item.texto}}</span></div>
               <a [routerLink]="['/postagem-edit', item.id]" class="btn btn-azul texto-branco" href="">Editar</a>

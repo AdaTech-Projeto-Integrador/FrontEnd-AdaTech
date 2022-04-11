@@ -1,5 +1,14 @@
 <div class="fundo" >
 
+  <div display="none">
+    <div class="elemento-flutuante-hidden">
+    <span>texto flutuante</span>
+    </div>
+    <div class="elemento-acao">
+    <span>exemplo de texto</span>
+    </div>
+    </div>
+
   <div class="container-fluid">
     <div class="row">
 
@@ -8,17 +17,23 @@
       <div class="col-md-3 margem-top "  > <!-----  criei a margim no css por causa da nav bar fixa  ---->
 
         <div class="card arredondar  btn-branco ">
+          <div class=" d-flex justify-content-end  ">
+          <a [routerLink]="['/usuario-edit/', idUsuario]">
+            <p class="text-dark font-weight-bold fs-16 m-0">
+              <i class= "fa-solid fa-gear"   ></i> </p>
+          </a>
+        </div>
           <img src="{{foto}}" alt="Imagem do user" width="150px" height="150px" class=" justify-mid img-center rounded-circle mt-1 mb-1 ml-1 mr-1" >
-          <p class="ml-4 mr-4 font-weight-bold fs-16  ">{{nome}} </p>
-          <p class=" ml-4 mr-4 font-weight-bold fs-16">{{tipo}} </p>
-
+          <p class="ml-4 mr-4 font-weight-bold fs-16  ">{{nome}} ({{tipo}})</p>
           <div class="nav-item ml-4 mr-4">
-            <a [routerLink]="['/usuario-edit/', idUsuario]">
-              <p class="text-dark font-weight-bold fs-16 m-0">
-                <i class="fa fa-pencil-square-o mr-2" aria-hidden="true"></i> <span>Editar Perfil</span></p>
-            </a>
+
           </div>
-          <div class="btn btn-azul texto-branco mt-4 mb-4 ml-4 mr-4" [routerLink]="['/minhas-postagens', idUsuario]">Minhas Postagens</div>
+          <div class="btn btn-azul texto-branco mt-4 mb-1 ml-4 mr-4" [routerLink]="['/minhas-postagens', idUsuario]">Início</div>
+          <div class="btn btn-azul texto-branco mb-1 ml-4 mr-4" [routerLink]="['/minhas-postagens', idUsuario]">Minhas Postagens</div>
+          <div class="btn btn-azul texto-branco mb-1 ml-4 mr-4" [routerLink]="['/minhas-postagens', idUsuario]">Vagas</div>
+          <div class="btn btn-azul texto-branco mb-4 ml-4 mr-4" [routerLink]="['/minhas-postagens', idUsuario]">Cursos</div>
+
+
         </div>
 
       </div>
@@ -36,9 +51,7 @@
 
           <!---publicar postagem--->
 
-          <div class="container">
-            <div class="row d-flex justify-content-center ">
-              <div class="card-postar btn-branco">
+              <div class=" card-postar btn-branco">
                 <div class="row px-3"> <img class="profile-pic mr-3" src="{{foto}}">
                   <div class="flex-column">
                     <h3 class="mb-0 font-weight-normal">{{nome}}</h3>
@@ -65,12 +78,11 @@
                   <div class="btn btn-azul texto-branco ml-auto" (click)="publicar()">Publicar</div>
                 </div>
               </div>
-            </div>
-          </div>
+
 
           <!-- fim do  publicar postagem -->
 
-        </div>
+
 
       </div>
 
@@ -98,7 +110,7 @@
 
                    <!-- todas postagens -->
 
-          <div class="feed p-2" *ngFor="let postagem of listaPostagens">
+          <div class="feed card-postagens" *ngFor="let postagem of listaPostagens">
             <div class="bg-white border arredondar">
               <div>
                 <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">

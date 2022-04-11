@@ -1,5 +1,6 @@
+import { AlertasService } from './../service/alertas.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
 import { Tema } from '../model/Tema';
@@ -20,7 +21,10 @@ export class MinhasPostagensComponent implements OnInit {
 
   tema: Tema = new Tema
   listaTemas: Tema[]
+
   idTema: number
+  idPost: number
+
   tituloPostagem: string
   textoPostagem: string
 
@@ -33,12 +37,18 @@ export class MinhasPostagensComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private postagemService: PostagemService,
     private temaService: TemaService,
-    private authService: AuthService
+    private authService: AuthService,
+    private alertas: AlertasService
+
   ) { }
 
   ngOnInit() {
+
+    window.scroll(0,0)
+
 
     if (environment.token == '') {
       alert('Sua sessão expirou, faça o login novamente')
@@ -49,6 +59,12 @@ export class MinhasPostagensComponent implements OnInit {
     this.getAllPostagens()
     this.findByIdUsuario()
 
+    let id = this.route.snapshot.params['id']
+    this.findByIdPostagem(id)
+    this.findAllTemas()
+
+    this.idPost = this.route.snapshot.params['id']
+    this.findByIdPostagem(this.idPost)
 
   }
 
@@ -109,6 +125,46 @@ export class MinhasPostagensComponent implements OnInit {
       this.getAllTemas()
     })
   }
+  }
+
+  findByIdPostagem(id: number){
+    this.postagemService.getByIdPostagem(id).subscribe((resp: Postagem)=>{
+      this.postagem = resp
+    })
+  }
+
+  findAllTemas(){
+    this.temaService.getAllTema().subscribe((resp: Tema[]) =>{
+      this.listaTemas = resp
+    })
+  }
+
+  atualizar(){
+    if (this.tituloPostagem == "") {
+      alert('Digite um título!')
+    }
+    else if (this.textoPostagem == "") {
+      alert('Digite o texto!')
+    } else if(this.idTema == null) {
+      alert('Escolha um tema!')
+    }
+    else
+
+    this.tema.id = this.idTema
+    this.postagem.tema = this.tema
+
+    this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem) =>{
+      this.postagem = resp
+      this.alertas.showAlertSuccess('Postagem atualizada com sucesso!')
+      this.router.navigate(['/inicio'])
+    })
+  }
+
+  apagar(){
+    this.postagemService.deletePostagem(this.idPost).subscribe(() =>{
+      this.alertas.showAlertSuccess('Postagem apagada com sucesso!')
+      this.router.navigate(['/inicio'])
+    })
   }
 
 

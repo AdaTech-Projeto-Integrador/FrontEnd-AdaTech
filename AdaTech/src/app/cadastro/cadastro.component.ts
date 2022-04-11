@@ -84,7 +84,7 @@ export class CadastroComponent implements OnInit {
 
         erro => {
           if (erro.status == 500 || erro.status == 401 || erro.status == 400) {
-            this.alertas.showAlertDanger('Preencha os campos obrigatórios corretamente!')
+            this.alertas.showAlertDanger('Campos incorretos ou usuário já cadastrado')
           }
         }
 

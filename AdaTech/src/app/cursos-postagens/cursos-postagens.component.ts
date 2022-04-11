@@ -63,7 +63,7 @@ export class CursosPostagensComponent implements OnInit {
   getCursos() {
     this.descricao = "Cursos"
     this.temaService.getByDescricaoTema(this.descricao).subscribe((resp: Tema[]) => {
-      this.listaTemas = resp.reverse()
+      this.listaTemas = resp
     })
   }
 

@@ -15,8 +15,10 @@ import { Tema } from 'src/app/model/Tema';
 export class PostagemEditComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
+
   tema: Tema = new Tema()
   listaTemas: Tema[]
+
   idTema: number
   tituloPostagem: string
   textoPostagem: string
@@ -29,13 +31,14 @@ export class PostagemEditComponent implements OnInit {
     private postagemService: PostagemService,
     private temaService: TemaService,
     private alertas: AlertasService
-  ) { } 
+  ) { }
 
   ngOnInit() {
 
     window.scroll(0,0)
 
     if(environment.token == ''){
+      alert('Sua sessão expirou, faça o login novamente')
       this.router.navigate(['/login'])
   }
 

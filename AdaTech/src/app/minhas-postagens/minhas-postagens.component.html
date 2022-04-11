@@ -116,7 +116,7 @@
               <div class="p-2 px-3 text-black-50"><span>Tema: {{item.tema.descricao}}</span></div>
               <div class="p-2 px-3"><span>{{item.titulo}}</span></div>
               <div class="p-2 px-3"><span>{{item.texto}}</span></div>
-              <a [routerLink]="['/postagem-edit', item.id]" class="btn btn-azul texto-branco" href="">Editar</a>
+              <button class="btn btn-azul texto-branco ml-auto" data-toggle="modal" data-target="#editarPostagem">Editar</button>
               <a [routerLink]="['/postagem-delete', item.id]" class="btn btn-branco text-dark" href="">Apagar</a>
             </div>
           </div>
@@ -135,5 +135,52 @@
 
 
 
+<!----- Modal -->
+<div class="modal fade" id="editarPostagem" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalCenterTitle">Atualizar Postagem</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="texto">Título</label>
+        <textarea [(ngModel)]='postagem.titulo' (input)="validarTitulo($event)" class="form-control mt-2" name="texto"
+        id="texto" rows="1" placeholder="Digite o título da postagem"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="texto">Texto</label>
+        <textarea [(ngModel)]="postagem.texto" class="form-control" name="texto" id="texto" rows="3"
+          placeholder="Digite o título"> </textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="texto">Escolha um tema ou <a data-dismiss="modal" routerLink='/tema'>Cadastre um novo</a>:
+        </label>
+        <select name="tema" id="tema" class="form-control" [(ngModel)]="idTema" (change)="findByIdTema()">
+          <option *ngFor="let item of listaTemas" value="{{item.id}}">
+            {{item.descricao}}
+          </option>
+        </select>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <div class="btn btn-azul texto-branco ml-auto" (click)="atualizar()">Atualizar</div>
+      <button type="button" class="btn btn-branco text-dark"  data-dismiss="modal"  routerLink='/minhas-postagens'>Cancelar</button>
+    </div>
+  </div>
+</div>
+</div>
 
 
+
+
+
+
+<!------------------------------------------> 

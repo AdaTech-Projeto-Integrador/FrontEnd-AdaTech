@@ -25,6 +25,7 @@ export class InicioComponent implements OnInit {
   tituloPostagem: string
   textoPostagem: string
 
+
   usuario: Usuario = new Usuario()
   idUsuario = environment.id
 
@@ -105,6 +106,7 @@ export class InicioComponent implements OnInit {
     })
   }
   }
+
 
   findByIdUsuario() {
     this.authService.getByIdUsuario(this.idUsuario).subscribe((resp: Usuario) => {

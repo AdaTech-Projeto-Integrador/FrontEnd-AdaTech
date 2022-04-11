@@ -1,10 +1,10 @@
+import { AlertasService } from './../service/alertas.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
 import { Tema } from '../model/Tema';
 import { Usuario } from '../model/Usuario';
-import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
@@ -21,7 +21,10 @@ export class MinhasPostagensComponent implements OnInit {
 
   tema: Tema = new Tema
   listaTemas: Tema[]
+
   idTema: number
+  idPost: number
+
   tituloPostagem: string
   textoPostagem: string
 
@@ -34,13 +37,18 @@ export class MinhasPostagensComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private postagemService: PostagemService,
     private temaService: TemaService,
     private authService: AuthService,
     private alertas: AlertasService
+
   ) { }
 
   ngOnInit() {
+
+    window.scroll(0,0)
+
 
     if (environment.token == '') {
       this.alertas.showAlertInfo('Sua sessão expirou, faça o login novamente')
@@ -51,6 +59,12 @@ export class MinhasPostagensComponent implements OnInit {
     this.getAllPostagens()
     this.findByIdUsuario()
 
+    let id = this.route.snapshot.params['id']
+    this.findByIdPostagem(id)
+    this.findAllTemas()
+
+    this.idPost = this.route.snapshot.params['id']
+    this.findByIdPostagem(this.idPost)
 
   }
 
@@ -68,7 +82,7 @@ export class MinhasPostagensComponent implements OnInit {
 
   getAllPostagens() {
     this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
-      this.listaPostagens = resp
+      this.listaPostagens = resp.reverse()
     })
   }
 
@@ -76,6 +90,80 @@ export class MinhasPostagensComponent implements OnInit {
   findByIdUsuario() {
     this.authService.getByIdUsuario(this.idUsuario).subscribe((resp: Usuario) => {
       this.usuario = resp
+    })
+  }
+
+  validarTitulo(event: any) {
+    this.tituloPostagem = event.target.value
+  }
+
+  validarTexto(event: any) {
+    this.textoPostagem = event.target.value
+  }
+
+  publicar() {
+
+    if (this.tituloPostagem == null) {
+      alert('Postagem não publicada! Digite um título')
+    }
+    else if (this.textoPostagem == null) {
+      alert('Postagem não publicada! Digite o texto')
+    } else if (this.idTema == null) {
+      alert('Postagem não publicada! Escolha um tema')
+    } else {
+    this.tema.id = this.idTema
+    this.postagem.tema = this.tema
+
+    this.usuario.id = this.idUsuario
+    this.postagem.usuario = this.usuario
+
+    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
+      this.postagem = resp
+      alert('Postagem realizada com sucesso!')
+      this.postagem = new Postagem()
+      this.getAllPostagens()
+      this.getAllTemas()
+    })
+  }
+  }
+
+  findByIdPostagem(id: number){
+    this.postagemService.getByIdPostagem(id).subscribe((resp: Postagem)=>{
+      this.postagem = resp
+    })
+  }
+
+  findAllTemas(){
+    this.temaService.getAllTema().subscribe((resp: Tema[]) =>{
+      this.listaTemas = resp
+    })
+  }
+
+  atualizar(){
+    if (this.tituloPostagem == "") {
+      alert('Digite um título!')
+    }
+    else if (this.textoPostagem == "") {
+      alert('Digite o texto!')
+    } else if(this.idTema == null) {
+      alert('Escolha um tema!')
+    }
+    else
+
+    this.tema.id = this.idTema
+    this.postagem.tema = this.tema
+
+    this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem) =>{
+      this.postagem = resp
+      this.alertas.showAlertSuccess('Postagem atualizada com sucesso!')
+      this.router.navigate(['/inicio'])
+    })
+  }
+
+  apagar(){
+    this.postagemService.deletePostagem(this.idPost).subscribe(() =>{
+      this.alertas.showAlertSuccess('Postagem apagada com sucesso!')
+      this.router.navigate(['/inicio'])
     })
   }
 

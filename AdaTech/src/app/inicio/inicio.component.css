@@ -1,5 +1,16 @@
-.margem {
-    margin-top: 100px;
+.elemento-acao:hover{
+display:block ;
+}
+
+
+
+.margem-top {
+    margin-top: 110px;
+
+}
+
+.margem-bottom {
+  margin-bottom: 100px;
 
 }
 
@@ -13,14 +24,28 @@
 
 
 .btn-branco {
-  background: white
+  background: white;
+  border-color: #102d38;
+  border-radius: 20px;
 }
+
+.fa-solid{
+padding: 10px;
+}
+
+.fa-solid:hover{
+  color:rgb(44, 43, 43);
+
+  }
 
 .texto-branco{
   color: #ffffff;
   font-size: 16px;
 }
 
+.fundo{
+  background-color: #e1e0e0;
+}
 
 body {
   color: #000;
@@ -30,16 +55,28 @@ body {
   background-repeat: no-repeat
 }
 
-.card-usuario {
+.arredondar {
   border-radius: 10px;
 }
 
+.img-center{
+  text-align: center;
 
-.card-post {
+}
+
+
+.card-postar {
   border-radius: 10px;
-  width: 500px;
+  width: 100%;
   padding: 20px;
-  margin-top: 50px;
+  margin-top: 110px;
+  margin-bottom: 50px
+}
+
+.card-postagens {
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 10px;
   margin-bottom: 50px
 }
 
@@ -51,7 +88,7 @@ body {
   background-color: #E0E0E0
 }
 
-textarea {
+.texto {
   padding: 15px 20px;
   border-radius: 10px;
   box-sizing: border-box;
@@ -63,7 +100,27 @@ textarea {
   width: 100%
 }
 
-textarea:focus {
+.titulo {
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #616161;
+  border: 1px solid #F5F5F5;
+  font-size: 16px;
+  letter-spacing: 1px;
+  height: 12px !important;
+  width: 100%
+}
+
+.titulo:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid #2D6073 !important;
+  outline-width: 0 !important
+}
+
+.texto:focus {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;

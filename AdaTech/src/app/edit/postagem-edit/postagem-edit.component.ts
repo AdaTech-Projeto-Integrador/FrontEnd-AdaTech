@@ -16,8 +16,10 @@ import { AuthService } from 'src/app/service/auth.service';
 export class PostagemEditComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
+
   tema: Tema = new Tema()
   listaTemas: Tema[]
+
   idTema: number
   tituloPostagem: string
   textoPostagem: string

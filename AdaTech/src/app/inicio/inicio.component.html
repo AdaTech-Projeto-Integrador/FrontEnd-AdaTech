@@ -5,19 +5,22 @@
 
       <!---card usuário-->
 
-      <div class="col-md-3 margem "  >
+      <div class="col-md-3 margem ">
 
         <div class="card-usuario  btn-branco ">
-          <img src="{{foto}}" alt="Imagem do user" width="150px" height="150px" class="img-fluid rounded-circle mt-4 mb-4 ml-4 mr-4">
+          <img src="{{foto}}" alt="Imagem do user" width="150px" height="150px"
+            class="img-fluid rounded-circle mt-4 mb-4 ml-4 mr-4">
           <p class="ml-4 mr-4 font-weight-bold fs-16  ">{{nome}} </p>
           <p class=" ml-4 mr-4 font-weight-bold fs-16">{{tipo}} </p>
 
           <li class="nav-item ml-4 mr-4">
             <a [routerLink]="['/usuario-edit/', idUsuario]">
-              <p class="text-dark fs-16 mt-4 mb-4 ml-4 mr-4"><i class="fa fa-pencil-square-o " aria-hidden="true"></i></p>
+              <p class="text-dark fs-16 mt-4 mb-4 ml-4 mr-4"><i class="fa fa-pencil-square-o " aria-hidden="true"></i>
+              </p>
             </a>
           </li>
-          <div class="btn btn-azul texto-branco mt-4 mb-4 ml-4 mr-4" [routerLink]="['/minhas-postagens', idUsuario]">Minhas Postagens</div>
+          <div class="btn btn-azul texto-branco mt-4 mb-4 ml-4 mr-4" [routerLink]="['/minhas-postagens', idUsuario]">
+            Minhas Postagens</div>
         </div>
 
 
@@ -81,6 +84,7 @@
               <div class="p-2 px-3 text-black-50"><span>Tema: {{postagem.tema.descricao}}</span></div>
               <div class="p-2 px-3"><span>{{postagem.titulo}}</span></div>
               <div class="p-2 px-3"><span>{{postagem.texto}}</span></div>
+              <a *ngIf="authService.adm()" [routerLink]="['/postagem-delete', postagem.id]" class="text-danger" href="">Apagar</a>
               <div class="d-flex justify-content-end margin-rigth-3"><i class="fa fa-thumbs-up"></i><i
                   class="fa fa-comments-o "></i><i class="fa fa-share"></i></div>
             </div>

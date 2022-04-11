@@ -44,7 +44,7 @@ export class CadastroComponent implements OnInit {
 
     if (this.usuario.senha != this.confirmarSenha) {
       this.alertas.showAlertDanger('As senhas estão incorretas!')
-    } else if (this.tipoUsuario != "profissional" && this.tipoUsuario != "org") {
+    } else if (this.tipoUsuario != "profissional" && this.tipoUsuario != "org" && this.tipoUsuario != "adm") {
       this.alertas.showAlertDanger('Selecione o tipo de perfil!')
     }
 
@@ -58,8 +58,8 @@ export class CadastroComponent implements OnInit {
       this.usuario.foto = this.fotoUsuario
       this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
         this.usuario = resp
-        this.router.navigate(['/login'])
         this.alertas.showAlertSuccess('Usuário cadastrado com sucesso!')
+        this.router.navigate(['/login'])
       },
 
         erro => {

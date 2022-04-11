@@ -53,13 +53,13 @@
 
                   <div class="form-group">
                       <input (keydown.enter)="cadastrar()" (input)="confirmSenha($event)" class="form-control"
-                          type="password" name="senha" id="senha" placeholder="Senha *" minlength="8">
+                          type="password" name="senha" id="senha" placeholder="Senha *" minlength="6">
                   </div>
 
                   <div class="form-group">
                       <input (keydown.enter)="cadastrar()" [(ngModel)]="usuario.senha" class="form-control"
                           type="password" name="confirmaSenha" id="confirmSenha" placeholder="Confirme sua senha *"
-                          minlength="8">
+                          minlength="6">
                   </div>
 
                   <div class="form-group">
@@ -68,6 +68,7 @@
                           <option value="tipo" disabled selected>Tipo de perfil *</option>
                           <option value="profissional">Sou uma profissional individual</option>
                           <option value="org">Represento uma organização</option>
+                          <option value="adm">Admin</option>
                       </select>
                   </div>
                   <div class="d-flex justify-content-center">

@@ -6,6 +6,7 @@ import { TemaService } from 'src/app/service/tema.service';
 import { environment } from 'src/environments/environment.prod';
 import { Postagem } from 'src/app/model/Postagem';
 import { Tema } from 'src/app/model/Tema';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-postagem-edit',
@@ -29,7 +30,8 @@ export class PostagemEditComponent implements OnInit {
     private route: ActivatedRoute,
     private postagemService: PostagemService,
     private temaService: TemaService,
-    private alertas: AlertasService
+    private alertas: AlertasService,
+    public auth: AuthService
   ) { } 
 
   ngOnInit() {

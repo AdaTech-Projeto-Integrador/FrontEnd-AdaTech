@@ -28,6 +28,12 @@ idUsuario = environment.id
       this.alertas.showAlertInfo('Sua sessão expirou, faça o login novamente')
       this.router.navigate(['/login'])
     }
+
+    if(environment.tipo != 'adm'){
+      this.alertas.showAlertDanger('Você não tem permissão para acessar esta página')
+      this.router.navigate(['/inicio'])
+    }
+
     let id = this.route.snapshot.params['id']
     this.findByIdTema(id)
   }

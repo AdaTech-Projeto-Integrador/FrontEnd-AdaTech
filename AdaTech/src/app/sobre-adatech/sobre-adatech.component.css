@@ -1,25 +1,27 @@
+.container img{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
 
-  .container img{
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    object-position: center;
-    margin-top: 10px;
-    justify-items: center;
-    background-color: #2d6073;
-    
-  }
-  
-  img.displayed {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 100%;
-    
+  justify-items: center;
+  background-color: #2d6073;
+
 }
-.container{
-    background-color: #2d6073
-   
+
+img.displayed {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: inline-block
+
+}
+.container-sobre{
+  background-color:#b9b9b9;
+  text-align: left;
+  font-size: 15pt;
+  font-family: 'Anek Odia', sans-serif;
 }
 
 .fa-brands{
@@ -29,29 +31,33 @@ padding: 10px;
 color: rgb(255, 255, 255);
 }
 .fa-brands:hover{
-    color: rgba(187, 184, 184, 0.801);
+  color: rgba(187, 184, 184, 0.801);
 }
 
 .texto{
-  color: rgb(7, 7, 7);
-  font-family: 'Anek Odia', sans-serif;
-  margin-bottom: 0%;
-  margin-top: 10px;
+color: rgb(7, 7, 7);
+font-family: 'Anek Odia', sans-serif;
+margin-bottom: 0%;
+margin-top: 10px;
 
 }
 #equipe{
-  background-color: #2d6073;
+background-color: #65b8a6;
+
+
 }
 
 .titulo{
-  font-size: 40px;
-  color: aliceblue;
-  text-align: center;
+font-size: 40px;
+color: aliceblue;
+text-align: center;
 }
 
 
+.bg-azul {
+background:  #65b8a6;
 
-
-
-
-
+}
+.cor{
+background-color: #ebebeb;
+}

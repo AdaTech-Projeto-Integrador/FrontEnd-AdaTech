@@ -65,19 +65,18 @@
 
             <div class="form-group">
               <label for="titulo">Título</label>
-              <input [(ngModel)]='postagem.titulo' type="text" class="form-control" id="titulo"
+              <input (input)="validarTitulo($event)" [(ngModel)]='postagem.titulo' type="text" class="form-control" id="titulo"
                 placeholder="Digite o título">
             </div>
 
             <div class="form-group">
               <label for="texto">Texto</label>
-              <textarea [(ngModel)]='postagem.texto' class="texto-post form-control" name="texto" id="texto"
+              <textarea (input)="validarTexto($event)" [(ngModel)]='postagem.texto' class="texto-post form-control" name="texto" id="texto"
                 rows="3"></textarea>
             </div>
 
             <div class="form-group">
-              <label for="texto">Escolha um tema:
-                <br><a *ngIf="authService.adm()" routerLink='/tema'>(cadastrar novo)</a></label>
+              <label for="texto">Escolha um tema: </label>
               <select name="tema" id="tema" class="select-tema form-control" [(ngModel)]='idTema'
                 (change)='findByIdTema()'>
                 <option *ngFor='let item of listaTemas' value="{{item.id}}">{{item.descricao}}</option>

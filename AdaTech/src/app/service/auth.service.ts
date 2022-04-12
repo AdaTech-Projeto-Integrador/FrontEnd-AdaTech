@@ -45,7 +45,7 @@ getByIdUsuario(id: number): Observable<Usuario>{
 
   adm(){
     let ok = false 
-    if(environment.tipo == 'adm'){
+    if(environment.tipo == 'Admin'){
       ok = true
     }
     return ok

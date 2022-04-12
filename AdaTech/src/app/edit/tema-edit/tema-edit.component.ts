@@ -29,7 +29,7 @@ idUsuario = environment.id
       this.router.navigate(['/login'])
     }
 
-    if(environment.tipo != 'adm'){
+    if(environment.tipo != 'Admin'){
       this.alertas.showAlertDanger('Você não tem permissão para acessar esta página')
       this.router.navigate(['/inicio'])
     }

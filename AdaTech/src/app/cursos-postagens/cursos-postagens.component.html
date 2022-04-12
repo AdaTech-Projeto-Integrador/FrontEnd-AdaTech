@@ -6,7 +6,7 @@
         <!-- Card de usuário -->
         <div class="col-md-3 margem-top margem-bottom">
 
-            <div class="card arredondar btn-branco ">
+            <div class="card arredondar btn-branco mb-3">
               <div class=" d-flex justify-content-end  ">
                 <a [routerLink]="['/usuario-edit/', idUsuario]">
                   <p class="text-dark font-weight-bold fs-16 m-0">
@@ -36,7 +36,7 @@
             <div class="col-md-8">
 
                 <div class="feed card-postagens" *ngFor="let tema of listaTemas">
-                    <div class="bg-white border arredondar" *ngFor="let postagem of tema.postagem | orderBy : id : reverse">
+                    <div class="bg-white border arredondar mb-3" *ngFor="let postagem of tema.postagem | orderBy : id : reverse">
 
                         <div>
 

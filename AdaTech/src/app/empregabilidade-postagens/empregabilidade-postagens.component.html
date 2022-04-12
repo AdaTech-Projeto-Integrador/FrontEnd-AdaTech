@@ -34,10 +34,10 @@
 
             <!-- Cards de postagens -->
             <div class="col-md-6 d-flex justify-content-between margem-bottom margem-top">
-                <div class="col-md-8">
+                <div class="col-md-8 margem-bottom">
 
-                    <div class="feed card-postagens" *ngFor="let tema of listaTemas">
-                        <div class="bg-white border arredondar"
+                    <div class="feed card-postagens margem-bottom" *ngFor="let tema of listaTemas">
+                        <div class="bg-white border arredondar mb-3"
                             *ngFor="let postagem of tema.postagem | orderBy : id : reverse">
 
                             <div>

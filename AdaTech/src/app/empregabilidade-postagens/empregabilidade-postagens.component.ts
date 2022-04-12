@@ -63,7 +63,7 @@ export class EmpregabilidadePostagensComponent implements OnInit {
   }
 
   getEmpregabilidade() {
-    this.descricao = "Empregabilidade"
+    this.descricao = "Vagas"
     this.temaService.getByDescricaoTema(this.descricao).subscribe((resp: Tema[]) => {
       this.listaTemas = resp
     })

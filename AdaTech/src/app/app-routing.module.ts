@@ -32,7 +32,7 @@ const routes: Routes = [
   {path:'postagem-edit/:id', component: PostagemEditComponent},
   {path:'postagem-delete/:id', component: PostagemDeleteComponent},
   {path:'minhas-postagens/:id', component: MinhasPostagensComponent},
-  {path:'empregabilidade', component: EmpregabilidadePostagensComponent},
+  {path:'vagas', component: EmpregabilidadePostagensComponent},
   {path:'cursos', component: CursosPostagensComponent},
   {path: 'sobre-adatech', component: SobreAdatechComponent}
 

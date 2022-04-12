@@ -1,14 +1,5 @@
 <div class="fundo">
 
-  <div display="none">
-    <div class="elemento-flutuante-hidden">
-      <span>texto flutuante</span>
-    </div>
-    <div class="elemento-acao">
-      <span>exemplo de texto</span>
-    </div>
-  </div>
-
   <div class="container-fluid">
     <div class="row">
 
@@ -31,13 +22,13 @@
               class=" justify-mid img-center rounded-circle mt-1 mb-1 ml-1 mr-1">
           </div>
           <div class="row d-flex justify-content-center">
-            <p class="ml-4 mr-4 font-weight-bold fs-16">{{nome}} ({{tipo}})</p>
+            <p class="ml-4 mr-4 fs-16"><b>{{nome}}</b> ({{tipo}})</p>
           </div>
 
           <div class="btn btn-azul texto-branco mt-2 mb-1 ml-4 mr-4" [routerLink]="['/inicio']">Início</div>
           <div class="btn btn-azul texto-branco mb-1 ml-4 mr-4" [routerLink]="['/minhas-postagens', idUsuario]">Minhas
             Postagens</div>
-          <div class="btn btn-azul texto-branco mb-1 ml-4 mr-4" [routerLink]="['/empregabilidade']">Vagas</div>
+          <div class="btn btn-azul texto-branco mb-1 ml-4 mr-4" [routerLink]="['/vagas']">Vagas</div>
           <div class="btn btn-azul texto-branco mb-4 ml-4 mr-4" [routerLink]="['/cursos']">Cursos</div>
         </div>
 
@@ -46,7 +37,7 @@
 
       </div>
 
-      <div class="col-md-6 d-flex justify-content-between">
+      <div class="col-md-6 d-flex justify-content-between margem-top">
 
         <div class="container-fluid">
 
@@ -68,11 +59,11 @@
                 </div>
               </div>
               <div class="p-2 px-3 text-black-50"><span>Tema: {{item.tema.descricao}}</span></div>
-              <div class="p-2 px-3"><span>{{item.titulo}}</span></div>
+              <div class="p-2 px-3"><span><b>Título: {{item.titulo}}</b></span></div>
               <div class="p-2 px-3"><span>{{item.texto}}</span></div>
-              <button class="btn btn-azul texto-branco ml-auto"
+              <button class="btn btn-azul texto-branco ml-3 mr-2 mb-3"
                 [routerLink]="['/postagem-edit', item.id]">Editar</button>
-              <a [routerLink]="['/postagem-delete', item.id]" class="btn btn-branco text-dark" href="">Apagar</a>
+              <a [routerLink]="['/postagem-delete', item.id]" class="btn btn-branco text-dark mb-3">Apagar</a>
             </div>
           </div>
 

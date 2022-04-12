@@ -62,9 +62,9 @@ export class CadastroComponent implements OnInit {
 
     if (this.usuario.senha != this.confirmarSenha) {
       this.alertas.showAlertDanger('As senhas estão incorretas!')
-    } else if (this.tipoUsuario != "profissional" && this.tipoUsuario != "org" && this.tipoUsuario != "adm") {
+    } else if (this.tipoUsuario != "Profissional" && this.tipoUsuario != "Recrutadora" && this.tipoUsuario != "Admin") {
       this.alertas.showAlertDanger('Selecione o tipo de perfil!')
-    } else if (this.tipoUsuario == "adm" && this.okAdm == false ) {
+    } else if (this.tipoUsuario == "Admin" && this.okAdm == false ) {
       this.alertas.showAlertDanger('Insira a senha de admin!')
     }
 

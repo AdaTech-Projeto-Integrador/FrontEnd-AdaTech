@@ -168,3 +168,11 @@ select:focus {
 .options:hover {
   color: #000
 }
+
+.texto-post{
+  resize:none
+}
+
+.select-tema{
+  border: #000;
+}

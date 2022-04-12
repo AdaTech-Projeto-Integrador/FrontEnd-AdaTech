@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/service/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
@@ -39,7 +40,8 @@ export class EmpregabilidadePostagensComponent implements OnInit {
     private router: Router,
     private postagemService: PostagemService,
     private temaService: TemaService,
-    private alertas: AlertasService
+    private alertas: AlertasService,
+    public authService: AuthService
   ) { }
 
   ngOnInit() {

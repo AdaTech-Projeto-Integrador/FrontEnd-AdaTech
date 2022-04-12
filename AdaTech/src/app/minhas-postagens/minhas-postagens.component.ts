@@ -40,14 +40,14 @@ export class MinhasPostagensComponent implements OnInit {
     private route: ActivatedRoute,
     private postagemService: PostagemService,
     private temaService: TemaService,
-    private authService: AuthService,
+    public authService: AuthService,
     private alertas: AlertasService
 
   ) { }
 
   ngOnInit() {
 
-    window.scroll(0,0)
+    window.scroll(0, 0)
 
 
     if (environment.token == '') {
@@ -62,9 +62,6 @@ export class MinhasPostagensComponent implements OnInit {
     let id = this.route.snapshot.params['id']
     this.findByIdPostagem(id)
     this.findAllTemas()
-
-    this.idPost = this.route.snapshot.params['id']
-    this.findByIdPostagem(this.idPost)
 
   }
 
@@ -104,64 +101,64 @@ export class MinhasPostagensComponent implements OnInit {
   publicar() {
 
     if (this.tituloPostagem == null) {
-      alert('Postagem não publicada! Digite um título')
+      this.alertas.showAlertDanger('Postagem não publicada! Digite um título')
     }
     else if (this.textoPostagem == null) {
-      alert('Postagem não publicada! Digite o texto')
+      this.alertas.showAlertDanger('Postagem não publicada! Digite o texto')
     } else if (this.idTema == null) {
-      alert('Postagem não publicada! Escolha um tema')
+      this.alertas.showAlertDanger('Postagem não publicada! Escolha um tema')
     } else {
-    this.tema.id = this.idTema
-    this.postagem.tema = this.tema
+      this.tema.id = this.idTema
+      this.postagem.tema = this.tema
 
-    this.usuario.id = this.idUsuario
-    this.postagem.usuario = this.usuario
+      this.usuario.id = this.idUsuario
+      this.postagem.usuario = this.usuario
 
-    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
+      this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
+        this.postagem = resp
+        this.alertas.showAlertSuccess('Postagem realizada com sucesso!')
+        this.postagem = new Postagem()
+        this.getAllPostagens()
+        this.getAllTemas()
+      })
+    }
+  }
+
+  findByIdPostagem(id: number) {
+    this.postagemService.getByIdPostagem(id).subscribe((resp: Postagem) => {
       this.postagem = resp
-      alert('Postagem realizada com sucesso!')
-      this.postagem = new Postagem()
-      this.getAllPostagens()
-      this.getAllTemas()
     })
   }
-  }
 
-  findByIdPostagem(id: number){
-    this.postagemService.getByIdPostagem(id).subscribe((resp: Postagem)=>{
-      this.postagem = resp
-    })
-  }
-
-  findAllTemas(){
-    this.temaService.getAllTema().subscribe((resp: Tema[]) =>{
+  findAllTemas() {
+    this.temaService.getAllTema().subscribe((resp: Tema[]) => {
       this.listaTemas = resp
     })
   }
 
-  atualizar(){
+  atualizar() {
     if (this.tituloPostagem == "") {
-      alert('Digite um título!')
+      this.alertas.showAlertDanger('Digite um título!')
     }
     else if (this.textoPostagem == "") {
-      alert('Digite o texto!')
-    } else if(this.idTema == null) {
-      alert('Escolha um tema!')
+      this.alertas.showAlertDanger('Digite o texto!')
+    } else if (this.idTema == null) {
+      this.alertas.showAlertDanger('Escolha um tema!')
     }
     else
 
-    this.tema.id = this.idTema
+      this.tema.id = this.idTema
     this.postagem.tema = this.tema
 
-    this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem) =>{
+    this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
       this.alertas.showAlertSuccess('Postagem atualizada com sucesso!')
       this.router.navigate(['/inicio'])
     })
   }
 
-  apagar(){
-    this.postagemService.deletePostagem(this.idPost).subscribe(() =>{
+  apagar() {
+    this.postagemService.deletePostagem(this.idPost).subscribe(() => {
       this.alertas.showAlertSuccess('Postagem apagada com sucesso!')
       this.router.navigate(['/inicio'])
     })

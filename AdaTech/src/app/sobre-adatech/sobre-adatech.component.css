@@ -13,7 +13,7 @@ img.displayed {
   display: block;
   margin-left: auto;
   margin-right: auto;
-
+  border-radius: 100%;
   display: inline-block
 
 }
@@ -38,11 +38,11 @@ color: rgb(255, 255, 255);
 color: rgb(7, 7, 7);
 font-family: 'Anek Odia', sans-serif;
 margin-bottom: 0%;
-margin-top: 10px;
+margin-top: 45px;
 
 }
 #equipe{
-background-color: #65b8a6;
+background-color: #2d6073;
 
 
 }
@@ -55,9 +55,19 @@ text-align: center;
 
 
 .bg-azul {
-background:  #65b8a6;
+background: #2d6073;
+}
 
+/*margem do logo*/
+.t{
+  margin-top:81px;
+  
 }
-.cor{
-background-color: #ebebeb;
+/*backgroud do logo*/
+.b{
+  background-color: #2d6073;
 }
+.body{
+  background-color: #2d6073;
+}
+

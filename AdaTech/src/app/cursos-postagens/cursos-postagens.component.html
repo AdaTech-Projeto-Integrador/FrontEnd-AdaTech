@@ -2,6 +2,33 @@
 
 <div class="container-fluid">
     <div class="row d-flex justify-content-center">
+<<<<<<< HEAD
+
+        <!---card usuário -->
+        <!---******tentar centralizar a foto -->
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-3 margem-top ">
+            <!-----  criei a margim no css por causa da nav bar fixa  ---->
+
+            <div class="card arredondar  btn-branco ">
+                <img src="{{foto}}" alt="Imagem do user" width="150px" height="150px"
+                    class=" justify-mid img-center rounded-circle mt-1 mb-1 ml-1 mr-1">
+                <p class="ml-4 mr-4 font-weight-bold fs-16  ">{{nome}} </p>
+                <p class=" ml-4 mr-4 font-weight-bold fs-16">{{tipo}} </p>
+
+                <div class="nav-item ml-4 mr-4">
+                    <a [routerLink]="['/usuario-edit/', idUsuario]">
+                        <p class="text-dark font-weight-bold fs-16 m-0">
+                            <i class="fa fa-pencil-square-o mr-2" aria-hidden="true"></i> <span>Editar Perfil</span>
+                        </p>
+                    </a>
+                </div>
+                <div class="btn btn-azul texto-branco mt-4 mb-4 ml-4 mr-4"
+                    [routerLink]="['/minhas-postagens', idUsuario]">
+                    Minhas Postagens</div>
+=======
 
         <!-- Card de usuário -->
         <div class="col-md-3 margem-top margem-bottom">
@@ -27,12 +54,18 @@
                 Postagens</div>
               <div class="btn btn-azul texto-branco mb-1 ml-4 mr-4" [routerLink]="['/vagas']">Vagas</div>
               <div class="btn btn-azul texto-branco mb-4 ml-4 mr-4" [routerLink]="['/cursos']">Cursos</div>
+>>>>>>> 0397f1338fdf20fb4e76016b4f227536982d3011
             </div>
     
           </div>
 
+
         <!-- Cards de postagens -->
+<<<<<<< HEAD
+        <div class="col-md-5 d-flex justify-content-between">
+=======
         <div class="col-md-6 d-flex justify-content-between margem-bottom margem-top">
+>>>>>>> 0397f1338fdf20fb4e76016b4f227536982d3011
             <div class="col-md-8">
 
                 <div class="feed card-postagens" *ngFor="let tema of listaTemas">
@@ -71,7 +104,7 @@
             </div>
         </div>
 
-        <div class="col-md-3"></div>
+        <div class="col-md-4"></div>
 
     </div>
 </div>

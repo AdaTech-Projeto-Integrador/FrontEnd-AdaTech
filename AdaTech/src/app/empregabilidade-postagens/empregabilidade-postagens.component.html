@@ -1,70 +1,10 @@
 <div class="fundo">
 
-<<<<<<< HEAD
-<div class="container-fluid">
-    <div class="row d-flex justify-content-center">
-
-        <!---card usuário -->
-        <!---******tentar centralizar a foto -->
-        <div class="col-md-1">
-
-        </div>
-        <div class="col-md-3 margem-top ">
-            <!-----  criei a margim no css por causa da nav bar fixa  ---->
-
-            <div class="card arredondar  btn-branco ">
-                <img src="{{foto}}" alt="Imagem do user" width="150px" height="150px"
-                    class=" justify-mid img-center rounded-circle mt-1 mb-1 ml-1 mr-1">
-                <p class="ml-4 mr-4 font-weight-bold fs-16  ">{{nome}} </p>
-                <p class=" ml-4 mr-4 font-weight-bold fs-16">{{tipo}} </p>
-
-                <div class="nav-item ml-4 mr-4">
-                    <a [routerLink]="['/usuario-edit/', idUsuario]">
-                        <p class="text-dark font-weight-bold fs-16 m-0">
-                            <i class="fa fa-pencil-square-o mr-2" aria-hidden="true"></i> <span>Editar Perfil</span>
-                        </p>
-                    </a>
-                </div>
-                <div class="btn btn-azul texto-branco mt-4 mb-4 ml-4 mr-4"
-                    [routerLink]="['/minhas-postagens', idUsuario]">
-                    Minhas Postagens</div>
-            </div>
-
-        </div>
-
-
-        <!-- Cards de postagens -->
-        <div class="col-md-5 d-flex justify-content-between">
-            <div class="col-md-8">
-
-                <div class="feed p-2" *ngFor="let tema of listaTemas">
-                    <div class="bg-white border mt-2" *ngFor="let item of tema.postagem | orderBy : id : reverse">
-
-                        <div>
-
-                            <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
-                                <div class="d-flex flex-row align-items-center feed-text px-2"><img
-                                        class="rounded-circle" src="{{item.usuario.foto}}" width="45">
-                                    <div class="d-flex flex-column flex-wrap ml-2"><span
-                                            class="font-weight-bold">{{item.usuario.nome}}</span>
-                                        <span class="text-black-50 time">{{item.data | date: 'dd/MM/yyyy'}} às
-                                            {{item.data |
-                                            date:
-                                            'HH:mm'}}</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="p-2 px-3"><span>{{item.titulo}}</span></div>
-                            <div class="p-2 px-3"><span>{{item.texto}}</span></div>
-
-                        </div>
-=======
     <div class="container-fluid">
         <div class="row d-flex justify-content-center">
 
             <!-- Card de usuário -->
             <div class="col-md-3 margem-top margem-bottom">
->>>>>>> 0397f1338fdf20fb4e76016b4f227536982d3011
 
                 <div class="card arredondar btn-branco ">
                     <div class=" d-flex justify-content-end  ">
@@ -139,12 +79,6 @@
             <div class="col-md-3"></div>
 
         </div>
-<<<<<<< HEAD
-
-        <div class="col-md-4"></div>
-
-=======
->>>>>>> 0397f1338fdf20fb4e76016b4f227536982d3011
     </div>
 
 </div>

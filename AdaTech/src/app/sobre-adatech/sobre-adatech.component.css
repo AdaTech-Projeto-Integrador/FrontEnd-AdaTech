@@ -9,6 +9,11 @@
 
 }
 
+.margem-top {
+  margin-top: 75px;
+
+}
+
 img.displayed {
   display: block;
   margin-left: auto;

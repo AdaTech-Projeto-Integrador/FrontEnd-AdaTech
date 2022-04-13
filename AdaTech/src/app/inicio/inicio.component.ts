@@ -48,7 +48,6 @@ export class InicioComponent implements OnInit {
       this.router.navigate(['/login'])
     }
 
-    console.log(this.idUsuario)
     this.getAllTemas()
     this.getAllPostagens()
 

@@ -19,7 +19,7 @@ import { SobreAdatechComponent } from './sobre-adatech/sobre-adatech.component';
 
 const routes: Routes = [
 
-  {path:'',redirectTo:'login',pathMatch:'full'}, 
+  {path:'',redirectTo:'sobre-adatech',pathMatch:'full'}, 
 
   {path:'login', component: LoginComponent},
   {path:'cadastro', component: CadastroComponent},

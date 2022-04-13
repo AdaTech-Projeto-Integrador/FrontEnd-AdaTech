@@ -2,7 +2,7 @@
     color: aliceblue;
 }
 
-.nav a:hover {
+.nav-item :hover {
     color: #D95B43;
     cursor: pointer;
 }

@@ -2,29 +2,38 @@
 
 <div class="container-fluid">
     <div class="row d-flex justify-content-center">
-        
-        <!-- Card de usuário -->
-        <div class="col-md-3 text-btn">
 
-            <div class="card" style="width:25%; position: fixed;">
-                <img src="{{foto}}" alt="Imagem do user" width="150px" height="150px" class="img-fluid rounded-circle">
-                <p class=" m-0 font-weight-bold fs-16 pl-3">{{nome}} </p>
-                <p class=" m-0 font-weight-bold fs-16 pl-3">{{tipo}} </p>
+        <!---card usuário -->
+        <!---******tentar centralizar a foto -->
+        <div class="col-md-1">
 
-                <li class="nav-item pl-3">
+        </div>
+        <div class="col-md-3 margem-top ">
+            <!-----  criei a margim no css por causa da nav bar fixa  ---->
+
+            <div class="card arredondar  btn-branco ">
+                <img src="{{foto}}" alt="Imagem do user" width="150px" height="150px"
+                    class=" justify-mid img-center rounded-circle mt-1 mb-1 ml-1 mr-1">
+                <p class="ml-4 mr-4 font-weight-bold fs-16  ">{{nome}} </p>
+                <p class=" ml-4 mr-4 font-weight-bold fs-16">{{tipo}} </p>
+
+                <div class="nav-item ml-4 mr-4">
                     <a [routerLink]="['/usuario-edit/', idUsuario]">
-                        <p class="text-dark fs-16 m-0"><i class="fa fa-pencil-square-o " aria-hidden="true"></i></p>
+                        <p class="text-dark font-weight-bold fs-16 m-0">
+                            <i class="fa fa-pencil-square-o mr-2" aria-hidden="true"></i> <span>Editar Perfil</span>
+                        </p>
                     </a>
-                </li>
-
-                <button type="submit" class="btn btn-success roboto text-azul mr-2 text-dark"
-                    [routerLink]="['/minhas-postagens', idUsuario]">Minhas postagens</button>
+                </div>
+                <div class="btn btn-azul texto-branco mt-4 mb-4 ml-4 mr-4"
+                    [routerLink]="['/minhas-postagens', idUsuario]">
+                    Minhas Postagens</div>
             </div>
 
         </div>
 
+
         <!-- Cards de postagens -->
-        <div class="col-md-6 d-flex justify-content-between">
+        <div class="col-md-5 d-flex justify-content-between">
             <div class="col-md-8">
 
                 <div class="feed p-2" *ngFor="let tema of listaTemas">
@@ -56,7 +65,7 @@
             </div>
         </div>
 
-        <div class="col-md-3"></div>
+        <div class="col-md-4"></div>
 
     </div>
 </div>

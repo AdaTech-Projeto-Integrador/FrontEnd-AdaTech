@@ -3,39 +3,55 @@ ul.social-network {
     padding: 0;
 }
 
-ul.social-network li{
+ul.social-network li {
     display: inline;
     margin: 0;
 }
 
-.fa{
+.fa {
     font-size: 20pt;
     color: white;
 }
 
-.fa-github-square:hover{
+.fa-github-square:hover {
     color: #D95B43;
 }
 
 .nav a {
     color: aliceblue;
-    }
-    
-    .nav a:hover {
-        color: #D95B43;
-        cursor: pointer;
-    }
-    .fs-rob{
+}
+
+.nav a:hover {
+    color: #D95B43;
+    cursor: pointer;
+}
+
+.fs-rob {
     font-family: 'Roboto', sans-serif;
     font-size: 15pt;
-    }
-    
-    .nav ul li{
+}
+
+.nav ul li {
     margin-left: 20pt;
     margin-right: 20pt;
     margin-top: 0;
-    }
-    
-    .bg-azul{
-        background-color: #1f192f
-    }
+}
+
+.bg-azul {
+    background-color: #1f192f
+}
+
+.justify-middle {
+
+    align-self: center;
+}
+
+.text-white {
+
+    align-self: center;
+}
+
+.social-network {
+
+    margin: 16px 0 16px 5px;
+}

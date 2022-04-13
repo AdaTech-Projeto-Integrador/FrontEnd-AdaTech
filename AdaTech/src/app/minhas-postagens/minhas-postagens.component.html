@@ -5,6 +5,7 @@
 
       <!---card usuário -->
       <!---******tentar centralizar a foto -->
+<<<<<<< HEAD
       <div class="col-md-1">
 
       </div>
@@ -26,10 +27,41 @@
           </div>
           <div class="btn btn-azul texto-branco mt-4 mb-4 ml-4 mr-4" [routerLink]="['/minhas-postagens', idUsuario]">
             Minhas Postagens</div>
+=======
+
+      <div class="col-md-3 margem-top ">
+        <!-----  criei a margim no css por causa da nav bar fixa  ---->
+
+        <div class="card arredondar btn-branco ">
+          <div class=" d-flex justify-content-end  ">
+            <a [routerLink]="['/usuario-edit/', idUsuario]">
+              <p class="text-dark font-weight-bold fs-16 m-0">
+                <i class="fa-solid fa-gear"></i>
+              </p>
+            </a>
+          </div>
+          <div class="row d-flex justify-content-center">
+            <img src="{{foto}}" alt="Imagem do user" width="150px" height="150px"
+              class=" justify-mid img-center rounded-circle mt-1 mb-1 ml-1 mr-1">
+          </div>
+          <div class="row d-flex justify-content-center">
+            <p class="ml-4 mr-4 fs-16"><b>{{nome}}</b> ({{tipo}})</p>
+          </div>
+
+          <div class="btn btn-azul texto-branco mt-2 mb-1 ml-4 mr-4" [routerLink]="['/inicio']">Início</div>
+          <div class="btn btn-azul texto-branco mb-1 ml-4 mr-4" [routerLink]="['/minhas-postagens', idUsuario]">Minhas
+            Postagens</div>
+          <div class="btn btn-azul texto-branco mb-1 ml-4 mr-4" [routerLink]="['/vagas']">Vagas</div>
+          <div class="btn btn-azul texto-branco mb-4 ml-4 mr-4" [routerLink]="['/cursos']">Cursos</div>
+>>>>>>> 0397f1338fdf20fb4e76016b4f227536982d3011
         </div>
+
+        <!---fim card usuário-->
+
 
       </div>
 
+<<<<<<< HEAD
       <!---fim card usuário-->
 
 
@@ -38,21 +70,26 @@
 
 
       <div class="col-md-5 d-flex justify-content-between">
+=======
+      <div class="col-md-6 d-flex justify-content-between margem-top">
+>>>>>>> 0397f1338fdf20fb4e76016b4f227536982d3011
 
         <div class="container-fluid">
 
           <!---publicar postagem--->
 
-          <div class="container">
-            <div class="row d-flex justify-content-center ">
-              <div class="card-postar btn-branco">
-                <div class="row px-3"> <img class="profile-pic mr-3" src="{{foto}}">
-                  <div class="flex-column">
-                    <h3 class="mb-0 font-weight-normal">{{nome}}</h3>
-                    <select name="privacy" class="privacy">
-                      <option *ngFor='let item of listaTemas' value="{{item.id}}">{{item.descricao}}</option>
-                    </select>
+          <div class="feed p-2" *ngFor="let item of usuario.postagem">
+            <div class="bg-white border arredondar">
+              <div>
+                <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+                  <div class="d-flex flex-row align-items-center feed-text px-2">
+
+
+                    <span class="text-black-50 time">{{item.data | date: 'dd/MM/yyyy'}} às {{item.data |
+                      date:
+                      'HH:mm'}}</span>
                   </div>
+<<<<<<< HEAD
                 </div>
                 <textarea [(ngModel)]='postagem.titulo' (input)="validarTitulo($event)" class="form-control mt-2"
                   name="texto" id="texto" rows="1" placeholder="Digite o título da postagem"></textarea>
@@ -70,8 +107,18 @@
 
                 <div class="row px-3">
                   <div class="btn btn-azul texto-branco ml-auto" (click)="publicar()">Publicar</div>
+=======
+
+                  <div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
+>>>>>>> 0397f1338fdf20fb4e76016b4f227536982d3011
                 </div>
               </div>
+              <div class="p-2 px-3 text-black-50"><span>Tema: {{item.tema.descricao}}</span></div>
+              <div class="p-2 px-3"><span><b>Título: {{item.titulo}}</b></span></div>
+              <div class="p-2 px-3"><span>{{item.texto}}</span></div>
+              <button class="btn btn-azul texto-branco ml-3 mr-2 mb-3"
+                [routerLink]="['/postagem-edit', item.id]">Editar</button>
+              <a [routerLink]="['/postagem-delete', item.id]" class="btn btn-branco text-dark mb-3">Apagar</a>
             </div>
           </div>
 
@@ -89,17 +136,23 @@
 
 </div>
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 0397f1338fdf20fb4e76016b4f227536982d3011
 <div class="fundo ">
 
   <div class="container-fluid  ">
     <div class="row ">
       <div class="col-md-1">
 
+<<<<<<< HEAD
       </div>
+=======
+>>>>>>> 0397f1338fdf20fb4e76016b4f227536982d3011
       <div class="col-md-3 "> </div>
 
 
@@ -108,6 +161,7 @@
         <div class="container-fluid">
 
           <!-- todas postagens -->
+<<<<<<< HEAD
 
           <div class="feed p-2" *ngFor="let item of usuario.postagem">
             <div class="bg-white border arredondar">
@@ -138,6 +192,15 @@
         <!--fim de todas postagens -->
 
 
+=======
+
+
+        </div>
+
+        <!--fim de todas postagens -->
+
+
+>>>>>>> 0397f1338fdf20fb4e76016b4f227536982d3011
       </div>
       <div class="col-md-1">
 
@@ -147,8 +210,11 @@
   </div>
 
 </div>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 0397f1338fdf20fb4e76016b4f227536982d3011
 
 <!----- Modal -->
 <div class="modal fade" id="editarPostagem" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -175,8 +241,13 @@
         </div>
 
         <div class="form-group">
+<<<<<<< HEAD
           <label for="texto">Escolha um tema ou <a data-dismiss="modal" routerLink='/tema'>Cadastre um novo</a>:
           </label>
+=======
+          <label for="texto">Escolha um tema:
+            <br><a *ngIf="authService.adm()" routerLink='/tema'>(cadastrar novo)</a></label>
+>>>>>>> 0397f1338fdf20fb4e76016b4f227536982d3011
           <select name="tema" id="tema" class="form-control" [(ngModel)]="idTema" (change)="findByIdTema()">
             <option *ngFor="let item of listaTemas" value="{{item.id}}">
               {{item.descricao}}
@@ -186,12 +257,17 @@
 
       </div>
       <div class="modal-footer">
+<<<<<<< HEAD
         <div class="btn btn-azul texto-branco ml-auto" data-dismiss="modal" (click)="atualizar()">Atualizar</div>
+=======
+        <div class="btn btn-azul texto-branco ml-auto" (click)="atualizar()">Atualizar</div>
+>>>>>>> 0397f1338fdf20fb4e76016b4f227536982d3011
         <button type="button" class="btn btn-branco text-dark" data-dismiss="modal"
           routerLink='/minhas-postagens'>Cancelar</button>
       </div>
     </div>
   </div>
+<<<<<<< HEAD
 </div>
 
 
@@ -200,3 +276,6 @@
 
 
 <!------------------------------------------>
+=======
+</div>
+>>>>>>> 0397f1338fdf20fb4e76016b4f227536982d3011

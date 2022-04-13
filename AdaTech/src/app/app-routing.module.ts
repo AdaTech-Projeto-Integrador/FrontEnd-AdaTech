@@ -13,6 +13,7 @@ import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.compon
 import { MinhasPostagensComponent } from './minhas-postagens/minhas-postagens.component';
 import { EmpregabilidadePostagensComponent } from './empregabilidade-postagens/empregabilidade-postagens.component';
 import { CursosPostagensComponent } from './cursos-postagens/cursos-postagens.component';
+import { SobreAdatechComponent } from './sobre-adatech/sobre-adatech.component';
 
 
 
@@ -31,8 +32,9 @@ const routes: Routes = [
   {path:'postagem-edit/:id', component: PostagemEditComponent},
   {path:'postagem-delete/:id', component: PostagemDeleteComponent},
   {path:'minhas-postagens/:id', component: MinhasPostagensComponent},
-  {path:'empregabilidade', component: EmpregabilidadePostagensComponent},
-  {path:'cursos', component: CursosPostagensComponent}
+  {path:'vagas', component: EmpregabilidadePostagensComponent},
+  {path:'cursos', component: CursosPostagensComponent},
+  {path: 'sobre-adatech', component: SobreAdatechComponent}
 
 ];
 

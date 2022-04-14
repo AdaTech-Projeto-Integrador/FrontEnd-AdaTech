@@ -13,19 +13,19 @@ export class AuthService {
   constructor( private http: HttpClient ) { }
 
   entrar(usuarioLogin: UsuarioLogin): Observable<UsuarioLogin>{
-    return this.http.post<UsuarioLogin>('https://adatechredesocial.herokuapp.com/logar', usuarioLogin)
+    return this.http.post<UsuarioLogin>('https://adatechredesocial.herokuapp.com/usuarios/logar', usuarioLogin)
 
 
   }
   
   cadastrar(usuario: Usuario): Observable<Usuario>{
-    return this.http.post<Usuario>('https://adatechredesocial.herokuapp.com/cadastrar', usuario)
+    return this.http.post<Usuario>('https://adatechredesocial.herokuapp.com/usuarios/cadastrar', usuario)
     
   }
 
   atualizar(usuario: Usuario): Observable<Usuario> {
 
-    return this.http.put<Usuario>('https://adatechredesocial.herokuapp.com/atualizar',usuario);
+    return this.http.put<Usuario>('https://adatechredesocial.herokuapp.com/usuarios/atualizar',usuario);
 
    }
 
